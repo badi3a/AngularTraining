@@ -10,6 +10,9 @@ import { HomeComponent } from './layout/home/home.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { ListEventComponent } from './layout/list-event/list-event.component';
 
+import {FormsModule} from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
