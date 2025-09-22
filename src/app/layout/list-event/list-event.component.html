@@ -1,0 +1,38 @@
+<div class="max-w-7xl mx-auto p-4">
+  <h1 class="text-3xl font-bold text-center mb-6 text-blue-700">Événements</h1>
+  
+  <input
+    type="text"
+    placeholder="Rechercher par titre ou lieu..."
+    [(ngModel)]="searchTerm"
+    class="w-full p-3 mb-6 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+
+  <div *ngIf="filterEvents().length === 0" class="text-center text-gray-500 py-8">
+    Aucun événement ne correspond à votre recherche.
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let event of filterEvents(); trackBy: trackById"
+         class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+      <img [src]="event.imageUrl" [alt]="event.title" class="w-full h-48 object-cover">
+      <div class="p-4 space-y-2">
+        <h2 class="text-xl font-bold text-gray-800">{{ event.title }}</h2>
+        <p class="text-gray-600">{{ event.description }}</p>
+        <p class="text-gray-700"><strong>Date:</strong> {{ event.date | date:'dd/MM/yyyy' }}</p>
+        <p class="text-gray-700"><strong>Lieu:</strong> {{ event.location }}</p>
+        <p class="text-gray-700"><strong>Prix:</strong> {{ event.price }} DT</p>
+        <p class="text-gray-700"><strong>Places disponibles:</strong> {{ event.availablePlaces }}</p>
+        <p class="text-gray-700"><strong>Likes:</strong> {{ event.likes }}</p>
+        <button (click)="likeEvent(event)"
+                [disabled]="!canLike(event)"
+                class="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200">
+          👍 Like
+        </button>
+        <span *ngIf="!canLike(event)" class="text-sm text-red-500 block mt-1">
+          {{ event.availablePlaces <= 0 ? 'Plus de places disponibles' : 'Événement passé' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
