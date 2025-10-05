@@ -1,0 +1,19 @@
+git remote -v
+git remote add upstream https://github.com/badi3a/AngularTraining.git
+git remote -v
+git branch 
+git fetch upstream  (bh yjib tous les branches)
+
+git branch 
+
+git checkout -b workshop-03-manipulate-component upstream/workshop-03-manipulate-component
+
+
+
+nbdel 7ajaa 
+git add .
+git commit -m ""
+git push origin
+
+
+npm i

@@ -1,0 +1,106 @@
+/* =========================
+   404 PAGE STYLING
+========================= */
+.nf-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #003f2d, #046d49);
+  padding: 20px;
+}
+
+.nf-card {
+  background: #fff;
+  color: #003f2d;
+  text-align: center;
+  border-radius: 20px;
+  padding: 60px 40px;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nf-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.nf-title {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #c4ff4d, #046d49);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nf-sub {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #003f2d;
+}
+
+.nf-desc {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Actions */
+.nf-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nf-actions a {
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 12px 25px;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+/* Bouton principal */
+.btn-primary {
+  background: #c4ff4d;
+  color: #003f2d;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  color: #003f2d;
+  border: 2px solid #003f2d;
+  transform: scale(1.05);
+}
+
+/* Bouton secondaire */
+.btn-link {
+  background: none;
+  color: #046d49;
+}
+
+.btn-link:hover {
+  color: #003f2d;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nf-card {
+    padding: 40px 20px;
+  }
+
+  .nf-title {
+    font-size: 4rem;
+  }
+
+  .nf-sub {
+    font-size: 1.5rem;
+  }
+}

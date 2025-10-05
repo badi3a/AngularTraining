@@ -1,0 +1,200 @@
+/* =========================
+   EVENTS GRID MODERNE
+========================= */
+.events-section {
+  background: #f4f7f8;
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #003f2d;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #c4ff4d, #046d49);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Recherche */
+.search-box {
+  max-width: 500px;
+  margin: 0 auto 50px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 2px solid #003f2d;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  box-shadow: 0 0 10px #c4ff4d;
+  border-color: #046d49;
+}
+
+/* Grille responsive */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Carte événement */
+.event-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  border: 2px solid #c4ff4d;
+}
+
+/* Image */
+.event-img {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.event-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.event-card:hover .event-img img {
+  transform: scale(1.1);
+}
+
+/* Badge animé */
+.badge-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #fff;
+  background: #d9534f;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Contenu */
+.event-body {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #003f2d;
+}
+
+.event-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.event-desc {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-price {
+  font-weight: bold;
+  color: #046d49;
+  margin-bottom: 6px;
+}
+
+.event-places {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.event-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Bouton Like */
+.btn-like {
+  background: #c4ff4d;
+  color: #003f2d;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-like:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-like:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.likes-count {
+  font-weight: bold;
+  color: #003f2d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.btn-buy {
+  background: #95c82e;
+  color: #003f2d;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-like:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
