@@ -1,52 +1,56 @@
 <!-- Section Hero -->
-<section class="bg-light py-5 text-center">
+<section class="hero-gofly text-center d-flex align-items-center">
   <div class="container">
-    <h1 class="display-5 fw-bold">Bienvenue sur EventHub</h1>
-    <p class="lead text-muted mt-3">
-      La plateforme pour créer, gérer et participer à vos événements préférés.<br>
-      Réservez vos tickets en ligne et partagez vos retours en toute simplicité.
+    <h1 class="display-4 fw-bold">Bienvenue sur <span>EventHub</span></h1>
+    <p class="lead mt-3">
+      Créez, gérez et participez à vos événements préférés.<br>
+      Réservez vos tickets et partagez vos retours en toute simplicité.
     </p>
     <div class="mt-4">
-      <a routerLink="/events" class="btn btn-primary btn-lg">Découvrir les événements</a>
-      <a routerLink="/auth/register" class="btn btn-outline-secondary btn-lg ms-2">Créer un compte</a>
+      <a routerLink="/events" class="btn btn-gofly">🎟 Découvrir les événements</a>
+      <a routerLink="/auth/register" class="btn btn-outline-gofly ms-2">➕ Créer un compte</a>
     </div>
   </div>
 </section>
 
 <!-- Section Features -->
-<section class="container py-5">
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/ticket.png" class="card-img-top" alt="Tickets">
-        <div class="card-body">
-          <h5 class="card-title">Achetez vos tickets</h5>
-          <p class="card-text">Réservez en quelques clics, rapidement et en toute sécurité.</p>
-          <a routerLink="/tickets" class="btn btn-primary btn-sm">Mes Tickets</a>
-        </div>
-      </div>
-    </div>
+<section class="features-gofly py-5">
+  <div class="container">
+    <div class="row g-4">
 
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/event.png" class="card-img-top" alt="Événements">
-        <div class="card-body">
-          <h5 class="card-title">Organisez vos événements</h5>
-          <p class="card-text">Publiez, gérez et suivez vos ventes facilement grâce à EventHub.</p>
-          <a routerLink="/events" class="btn btn-outline-primary btn-sm">Voir les événements</a>
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <div class="icon-box bg-gofly mb-3">
+            <i class="bi bi-ticket-perforated-fill"></i>
+          </div>
+          <h5>Achetez vos tickets</h5>
+          <p>Réservez en quelques clics, rapidement et en toute sécurité.</p>
+          <a routerLink="/tickets" class="btn btn-gofly btn-sm">Mes Tickets</a>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/feedback.png" class="card-img-top" alt="Feedback">
-        <div class="card-body">
-          <h5 class="card-title">Partagez votre avis</h5>
-          <p class="card-text">Aidez la communauté en donnant vos feedbacks et notes.</p>
-          <a routerLink="/feedback" class="btn btn-outline-secondary btn-sm">Donner un feedback</a>
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <div class="icon-box bg-gofly mb-3">
+            <i class="bi bi-calendar-event-fill"></i>
+          </div>
+          <h5>Organisez vos événements</h5>
+          <p>Publiez, gérez et suivez vos ventes facilement grâce à EventHub.</p>
+          <a routerLink="/events" class="btn btn-gofly btn-sm">Voir les événements</a>
         </div>
       </div>
+
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <div class="icon-box bg-gofly mb-3">
+            <i class="bi bi-chat-dots-fill"></i>
+          </div>
+          <h5>Partagez votre avis</h5>
+          <p>Aidez la communauté en donnant vos feedbacks et notes.</p>
+          <a routerLink="/feedback" class="btn btn-gofly btn-sm">Donner un feedback</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

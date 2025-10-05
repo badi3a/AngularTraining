@@ -1,34 +1,18 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark border-bottom shadow-sm">
-  <div class="container">
-    <!-- Logo / Nom de l'application -->
-    <a class="navbar-brand fw-bold" routerLink="/">EventHub</a>
+<nav class="navbar-gofly">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a class="nav-logo" href="/">EventHub</a>
 
     <!-- Bouton burger (mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="nav-toggle" id="navToggle">&#9776;</button>
 
-    <!-- Menu principal -->
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active" aria-current="page">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/events" routerLinkActive="active">Événements</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/tickets" routerLinkActive="active">Mes Tickets</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/feedback" routerLinkActive="active">Feedback</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active">Se connecter</a>
-        </li>
-
-      </ul>
-    </div>
+    <!-- Menu -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/home">Accueil</a></li>
+      <li><a href="/events">Événements</a></li>
+      <li><a href="/tickets">Mes Tickets</a></li>
+      <li><a href="/feedback">Feedback</a></li>
+      <li><a href="/auth/login" class="btn-login">Se connecter</a></li>
+    </ul>
   </div>
 </nav>

@@ -1,0 +1,107 @@
+/* Footer Global */
+.footer-gofly {
+  background: #003f2d; /* Vert foncé */
+  color: #f4f4f4;
+  padding: 50px 20px 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+/* Colonne */
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c4ff4d; /* Vert clair fluo style GOFLY */
+  margin-bottom: 12px;
+}
+
+.footer-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-text {
+  color: #dcdcdc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 12px;
+}
+
+/* Liens */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #f4f4f4;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #c4ff4d; /* Vert clair fluo */
+}
+
+/* Bas du footer */
+.footer-bottom {
+  border-top: 1px solid #2e5d48;
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 13px;
+  max-width: 1200px;
+  margin: 30px auto 0;
+}
+
+.footer-bottom a {
+  color: #c4ff4d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Bouton retour */
+.btn-home {
+  border: 1px solid #c4ff4d;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.btn-home:hover {
+  background: #c4ff4d;
+  color: #003f2d;
+}
