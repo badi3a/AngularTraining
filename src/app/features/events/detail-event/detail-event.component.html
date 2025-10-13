@@ -1,1 +1,58 @@
-<p>detail-event works!</p>
+<div class="event-wrapper" *ngIf="currentEvent; else noEvent">
+  <!-- HERO SECTION -->
+  <div
+    class="event-hero"
+    [style.backgroundImage]="'url(' + (currentEvent.imageUrl || 'assets/default-event.jpg') + ')'"
+  >
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="title">{{ currentEvent.title }}</h1>
+      <p class="subtitle">
+        <i class="fa-solid fa-calendar-days"></i>
+        {{ currentEvent.date | date: 'longDate' }}
+        •
+        <i class="fa-solid fa-location-dot"></i>
+        {{ currentEvent.location }}
+      </p>
+    </div>
+  </div>
+
+  <!-- DETAILS SECTION -->
+  <div class="event-details">
+    <div class="card glass-card">
+      <h2>À propos de l'événement</h2>
+      <p>{{ currentEvent.description }}</p>
+
+      <div class="info">
+        <div>
+          <i class="fa-solid fa-ticket"></i>
+          <span>Prix : {{ currentEvent.price | currency:'EUR' }}</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-chair"></i>
+          <span>Places disponibles : {{ currentEvent.nbPlaces }}</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-user-tie"></i>
+          <span>Organisateur ID : {{ currentEvent.organizerId }}</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-heart"></i>
+          <span>{{ currentEvent.nbrLike }} Likes</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn join">Participer</button>
+        <button class="btn share"><i class="fa-solid fa-share-nodes"></i> Partager</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEMPLATE SI AUCUN EVENEMENT -->
+<ng-template #noEvent>
+  <div class="no-event">
+    <p>Aucun événement trouvé 😔</p>
+  </div>
+</ng-template>
