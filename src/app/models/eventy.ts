@@ -15,4 +15,8 @@ export interface Eventy {
   imageUrl: string;        // Path/URL to the event image
   nbPlaces: number;        // Number of available places
   nbrLike: number;         // Number of likes
+
+
+
+  
 }

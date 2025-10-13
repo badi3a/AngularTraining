@@ -36,4 +36,10 @@ export class EventsService {
        //cnx backend
        return this.list;
   }
+
+
+  public getEventById(id: number): Eventy{
+
+    return this.list[id];
+  }
 }
