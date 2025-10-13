@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'datePers'
 })
 export class DatePersPipe implements PipeTransform {
- //
+
   transform(value: unknown, ...args: unknown[]): unknown {
     return null;
   }

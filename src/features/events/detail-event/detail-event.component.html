@@ -1,0 +1,321 @@
+<div class="detail-container" *ngIf="event; else notFound">
+
+  <!-- Template pour TOURNOI -->
+  <ng-container *ngIf="event.title.includes('Tournoi') || event.title.includes('LAN Party')">
+    <div class="tournament-header">
+      <div class="header-content">
+        <div class="event-badge tournament-badge">
+          <i class="fas fa-trophy"></i>
+          TOURNOI COMPÉTITIF
+        </div>
+        <h1 class="event-title">{{ event.title }}</h1>
+        <div class="prize-pool">
+          <div class="prize-amount">🎯 Prix: 500€</div>
+          <div class="prize-breakdown">
+            <span>1ère: 250€</span>
+            <span>2ème: 150€</span>
+            <span>3ème: 100€</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tournament-content">
+      <div class="tournament-grid">
+
+        <!-- Colonne informations -->
+        <div class="tournament-info">
+          <section class="info-card">
+            <h3><i class="fas fa-info-circle"></i> Format du Tournoi</h3>
+            <div class="format-details">
+              <div class="format-item">
+                <i class="fas fa-users"></i>
+                <div>
+                  <strong>Format</strong>
+                  <span>5v5 • Élimination directe</span>
+                </div>
+              </div>
+              <div class="format-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>Durée</strong>
+                  <span>4 heures • Best of 3</span>
+                </div>
+              </div>
+              <div class="format-item">
+                <i class="fas fa-map"></i>
+                <div>
+                  <strong>Maps</strong>
+                  <span>Summoner's Rift • Draft Mode</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="info-card">
+            <h3><i class="fas fa-calendar-alt"></i> Calendrier</h3>
+            <div class="schedule">
+              <div class="schedule-item">
+                <div class="time">14:00 - 14:30</div>
+                <div class="activity">Enregistrement des équipes</div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">14:30 - 16:30</div>
+                <div class="activity">Phase de groupes</div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">16:30 - 18:00</div>
+                <div class="activity">Finales</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Colonne actions -->
+        <div class="tournament-actions">
+          <div class="action-card">
+            <h4>Inscription Équipe</h4>
+            <div class="team-size">
+              <i class="fas fa-user-friends"></i>
+              5 joueurs par équipe
+            </div>
+            <button class="btn btn-primary btn-large">
+              <i class="fas fa-users"></i>
+              Inscrire mon équipe
+            </button>
+            <div class="team-count">
+              <strong>12/16 équipes inscrites</strong>
+            </div>
+          </div>
+
+          <div class="rules-card">
+            <h4><i class="fas fa-book"></i> Règles</h4>
+            <ul class="rules-list">
+              <li>Équipes de 5 joueurs minimum</li>
+              <li>Champion pool complète autorisée</li>
+              <li>Pause technique de 10 min entre matches</li>
+              <li>Streaming obligatoire pour les finales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Template pour WORKSHOP -->
+  <ng-container *ngIf="event.title.includes('Workshop')">
+    <div class="workshop-header">
+      <div class="header-content">
+        <div class="event-badge workshop-badge">
+          <i class="fas fa-graduation-cap"></i>
+          WORKSHOP FORMATION
+        </div>
+        <h1 class="event-title">{{ event.title }}</h1>
+        <div class="skill-level">
+          <span class="level-badge">Niveau Intermédiaire</span>
+          <span class="duration">• 3 heures de formation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workshop-content">
+      <div class="workshop-grid">
+
+        <!-- Colonne formation -->
+        <div class="workshop-info">
+          <section class="info-card">
+            <h3><i class="fas fa-chalkboard-teacher"></i> Programme de Formation</h3>
+            <div class="curriculum">
+              <div class="module">
+                <h4>Module 1: Techniques de Base</h4>
+                <ul>
+                  <li>Maîtrise du recul et spray control</li>
+                  <li>Positionnement optimal</li>
+                  <li>Gestion de l'économie</li>
+                </ul>
+              </div>
+              <div class="module">
+                <h4>Module 2: Stratégies Avancées</h4>
+                <ul>
+                  <li>Coordination d'équipe</li>
+                  <li>Utilisation des utilitaires</li>
+                  <li>Lecture du jeu adverse</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="info-card">
+            <h3><i class="fas fa-user-tie"></i> Nos Coaches</h3>
+            <div class="coaches-grid">
+              <div class="coach-profile">
+                <div class="coach-avatar">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <div class="coach-details">
+                  <h5>Alex "Viper" Chen</h5>
+                  <p>Ancien pro-player • 5 ans d'expérience</p>
+                  <div class="coach-spec">Spécialiste stratégie</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Colonne inscription -->
+        <div class="workshop-actions">
+          <div class="action-card">
+            <div class="price-section">
+              <div class="price free">FORMATION GRATUITE</div>
+              <div class="spots-remaining">
+                <i class="fas fa-user-clock"></i>
+                {{ event.nbPlaces }} places disponibles
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-large">
+              <i class="fas fa-calendar-check"></i>
+              Réserver ma place
+            </button>
+
+            <div class="requirements">
+              <h5>Pré-requis</h5>
+              <ul>
+                <li>Niveau Argent ou supérieur</li>
+                <li>Microphone fonctionnel</li>
+                <li>Connaissance basique du jeu</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Template pour LAN PARTY -->
+  <ng-container *ngIf="event.title.includes('LAN Party')">
+    <div class="lanparty-header">
+      <div class="header-content">
+        <div class="event-badge lan-badge">
+          <i class="fas fa-gamepad"></i>
+          LAN PARTY
+        </div>
+        <h1 class="event-title">{{ event.title }}</h1>
+        <div class="lan-details">
+          <span class="duration">🎮 8 heures de gaming</span>
+          <span class="food">🍕 Nourriture incluse</span>
+          <span class="setup">💻 Setup fourni</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lanparty-content">
+      <div class="lanparty-grid">
+
+        <!-- Colonne jeux -->
+        <div class="games-section">
+          <section class="info-card">
+            <h3><i class="fas fa-dice"></i> Jeux au Programme</h3>
+            <div class="games-list">
+              <div class="game-item">
+                <div class="game-icon">CS2</div>
+                <div class="game-info">
+                  <h5>Counter-Strike 2</h5>
+                  <p>Tournoi 5v5 • Cash prize</p>
+                </div>
+              </div>
+              <div class="game-item">
+                <div class="game-icon">VAL</div>
+                <div class="game-info">
+                  <h5>Valorant</h5>
+                  <p>Competitive • Custom games</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="info-card">
+            <h3><i class="fas fa-concierge-bell"></i> Services Inclus</h3>
+            <div class="services-grid">
+              <div class="service-item">
+                <i class="fas fa-utensils"></i>
+                <span>Buffet illimité</span>
+              </div>
+              <div class="service-item">
+                <i class="fas fa-coffee"></i>
+                <span>Boissons énergisantes</span>
+              </div>
+              <div class="service-item">
+                <i class="fas fa-desktop"></i>
+                <span>PC Gaming Haut de Gamme</span>
+              </div>
+              <div class="service-item">
+                <i class="fas fa-t-shirt"></i>
+                <span>Goodies exclusifs</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Colonne réservation -->
+        <div class="lanparty-actions">
+          <div class="action-card">
+            <div class="ticket-options">
+              <div class="ticket-option">
+                <h5>🎫 Ticket Standard</h5>
+                <div class="price">15€</div>
+                <ul>
+                  <li>Accès 8 heures</li>
+                  <li>Nourriture & boissons</li>
+                  <li>Participation tournois</li>
+                </ul>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-large">
+              <i class="fas fa-ticket-alt"></i>
+              Acheter mon ticket
+            </button>
+
+            <div class="lan-rules">
+              <h5>🏠 Règles de la LAN</h5>
+              <ul>
+                <li>Respect du matériel obligatoire</li>
+                <li>Pas de cheats/modifications</li>
+                <li>Comportement fair-play</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Section commune : Événements similaires -->
+  <section class="similar-events">
+    <h2>Événements Similaires</h2>
+    <div class="events-grid">
+      <div *ngFor="let e of getSimilarEvents()" class="similar-card">
+        <div class="similar-badge" [ngClass]="getEventBadgeClass(e.title)">
+          {{ getEventType(e.title) }}
+        </div>
+        <h4>{{ e.title }}</h4>
+        <p>{{ e.date | date:'dd/MM/yyyy' }}</p>
+        <button class="btn btn-outline" [routerLink]="['/evenement', e.id]">
+          Voir détails
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<ng-template #notFound>
+  <div class="not-found">
+    <i class="fas fa-exclamation-triangle"></i>
+    <h2>Événement Non Trouvé</h2>
+    <button class="btn btn-primary" routerLink="/evenement">
+      Retour aux événements
+    </button>
+  </div>
+</ng-template>

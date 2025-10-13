@@ -1,1 +1,102 @@
-<p>not-found works!</p>
+<div class="not-found-container">
+  <div class="game-background">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="floating-errors">
+      <div class="error-msg">404</div>
+      <div class="error-msg">ERROR</div>
+      <div class="error-msg">LOST</div>
+      <div class="error-msg">GAME OVER</div>
+    </div>
+  </div>
+
+  <div class="game-container">
+    <!-- Machine Arcade -->
+    <div class="arcade-machine">
+      <div class="arcade-top">
+        <div class="arcade-screen">
+          <div class="screen-content">
+            <div class="game-title">404 QUEST</div>
+            <div class="level-indicator">Niveau: {{ currentLevel }}</div>
+
+            <!-- Mini Jeu -->
+            <div class="mini-game">
+              <div class="game-grid">
+                <!-- Player -->
+                <div class="player"
+                     [style.left.px]="playerPosition.x"
+                     [style.top.px]="playerPosition.y"></div>
+
+                <!-- Éléments du jeu -->
+                <div class="exit"></div>
+
+                <!-- Murs avec positions dynamiques -->
+                <div class="wall wall-1"
+                     [style.left.px]="walls[0].x"
+                     [style.top.px]="walls[0].y"></div>
+                <div class="wall wall-2"
+                     [style.left.px]="walls[1].x"
+                     [style.top.px]="walls[1].y"></div>
+                <div class="wall wall-3"
+                     [style.left.px]="walls[2].x"
+                     [style.top.px]="walls[2].y"></div>
+                <div class="wall wall-4"
+                     [style.left.px]="walls[3].x"
+                     [style.top.px]="walls[3].y"></div>
+
+                <!-- Pièces -->
+                <div class="coin coin-1" [class.collected]="coinsCollected[0]"></div>
+                <div class="coin coin-2" [class.collected]="coinsCollected[1]"></div>
+                <div class="coin coin-3" [class.collected]="coinsCollected[2]"></div>
+              </div>
+            </div>
+
+            <div class="game-stats">
+              <div class="score">Score: <span>{{ score }}</span></div>
+              <div class="lives">Vies: <span>{{ getHearts() }}</span></div>
+
+              <div class="message" *ngIf="gameMessage">{{ gameMessage }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arcade-bottom">
+        <div class="controls">
+          <div class="joystick">
+            <div class="directions">
+              <button class="dir-btn up" (click)="move('up')">↑</button>
+              <button class="dir-btn down" (click)="move('down')">↓</button>
+              <button class="dir-btn left" (click)="move('left')">←</button>
+              <button class="dir-btn right" (click)="move('right')">→</button>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-btn btn-a" (click)="restartGame()">A</button>
+            <button class="action-btn btn-b" (click)="changeWalls()">B</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message d'erreur -->
+    <div class="error-content">
+      <h1 class="error-title">Page Perdue dans l'Espace</h1>
+      <p class="error-message">
+        La page que vous cherchez s'est échappée dans un trou noir.<br>
+        Guidez le vaisseau vers la sortie pour retourner à la civilisation !
+      </p>
+      <div class="error-actions">
+        <button class="btn-primary" (click)="goHome()">
+          <i class="fas fa-home"></i>
+          Retour à l'accueil
+        </button>
+        <button class="btn-secondary" (click)="restartGame()">
+          <i class="fas fa-redo"></i>
+          Rejouer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

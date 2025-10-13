@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatePersPipe } from './pipes/date-pers.pipe';
+import { DatePersPipe } from './pipe/date-pers.pipe';
 
 
 

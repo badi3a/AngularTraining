@@ -1,52 +1,156 @@
-<!-- Section Hero -->
-<section class="bg-light py-5 text-center">
-  <div class="container">
-    <h1 class="display-5 fw-bold">Bienvenue sur EventHub</h1>
-    <p class="lead text-muted mt-3">
-      La plateforme pour créer, gérer et participer à vos événements préférés.<br>
-      Réservez vos tickets en ligne et partagez vos retours en toute simplicité.
-    </p>
-    <div class="mt-4">
-      <a href="/events" class="btn btn-primary btn-lg">Découvrir les événements</a>
-      <a href="/auth/register" class="btn btn-outline-secondary btn-lg ms-2">Créer un compte</a>
-    </div>
-  </div>
-</section>
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+      <div class="floating-elements">
+        <div class="floating-element element-1" data-color="red"></div>
 
-<!-- Section Features -->
-<section class="container py-5">
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/ticket.png" class="card-img-top" alt="Tickets">
-        <div class="card-body">
-          <h5 class="card-title">Achetez vos tickets</h5>
-          <p class="card-text">Réservez en quelques clics, rapidement et en toute sécurité.</p>
-          <a href="/tickets" class="btn btn-primary btn-sm">Mes Tickets</a>
-        </div>
+        <div class="floating-element element-4" data-color="red"></div>
+
+        <div class="floating-element element-7" data-color="red"></div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/event.png" class="card-img-top" alt="Événements">
-        <div class="card-body">
-          <h5 class="card-title">Organisez vos événements</h5>
-          <p class="card-text">Publiez, gérez et suivez vos ventes facilement grâce à EventHub.</p>
-          <a href="/events" class="btn btn-outline-primary btn-sm">Voir les événements</a>
-        </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="title-line primary">ESPRIT</span>
+          <span class="title-line accent">GAMING</span>
+          <span class="title-line secondary">COMMUNITY</span>
+        </h1>
+        <p class="hero-subtitle">
+          La communauté gaming de l'école d'ingénieurs ESPRIT
+        </p>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/feedback.png" class="card-img-top" alt="Feedback">
-        <div class="card-body">
-          <h5 class="card-title">Partagez votre avis</h5>
-          <p class="card-text">Aidez la communauté en donnant vos feedbacks et notes.</p>
-          <a href="/feedback" class="btn btn-outline-secondary btn-sm">Donner un feedback</a>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Équipes Actives</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Événements</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">300+</div>
+          <div class="stat-label">Membres</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Games Section -->
+  <section class="games-section">
+    <div class="section-container">
+      <h2 class="section-title">Jeux Populaires</h2>
+
+      <div class="games-grid">
+        <div class="game-card">
+          <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+            <div class="game-overlay"></div>
+            <div class="game-logo">
+              <i class="fab fa-riot-games"></i>
+            </div>
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">League of Legends</h3>
+            <div class="game-stats">
+              <span class="stat">5 équipes</span>
+              <span class="stat">25 joueurs</span>
+            </div>
+            <div class="game-tags">
+              <span class="game-tag">MOBA</span>
+              <span class="game-tag">Compétitif</span>
+            </div>
+          </div>
+        </div>
+        <!-- Valorant -->
+        <div class="game-card">
+          <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+            <div class="game-overlay"></div>
+            <div class="game-logo">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">Valorant</h3>
+            <div class="game-stats">
+              <span class="stat">3 équipes</span>
+              <span class="stat">15 joueurs</span>
+            </div>
+            <div class="game-tags">
+              <span class="game-tag">FPS</span>
+              <span class="game-tag">Tactique</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+            <div class="game-overlay"></div>
+            <div class="game-logo">
+              <i class="fas fa-skull"></i>
+            </div>
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">Counter-Strike 2</h3>
+            <div class="game-stats">
+              <span class="stat">4 équipes</span>
+              <span class="stat">20 joueurs</span>
+            </div>
+            <div class="game-tags">
+              <span class="game-tag">FPS</span>
+              <span class="game-tag">Classique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-container">
+      <h2 class="section-title">Nos Activités</h2>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3 class="feature-title">Compétitions</h3>
+          <p class="feature-description">
+            Participez à des tournois et défiez d'autres équipes dans une ambiance compétitive
+          </p>
+          <div class="feature-highlight"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Equipes</h3>
+          <p class="feature-description">
+            Rejoignez une communauté passionnée et échangez avec d'autres gamers
+          </p>
+          <div class="feature-highlight"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3 class="feature-title">Événements</h3>
+          <p class="feature-description">
+            Organisez et participez à des événements gaming réguliers
+          </p>
+          <div class="feature-highlight"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>

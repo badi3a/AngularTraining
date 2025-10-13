@@ -1,3 +1,20 @@
-/* You can add global styles to this file,
-and also import other style files */
-@import "bootstrap/dist/css/bootstrap.css";
+/* Solution force */
+:host {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.events-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.gaming-footer {
+  margin-top: 0 !important;
+}

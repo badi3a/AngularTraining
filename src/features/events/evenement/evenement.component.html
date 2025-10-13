@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Événements - ESPIRIT Gaming Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="evenement.component.css">
+</head>
+<body>
+<div class="events-container">
+
+
+  <!-- Navigation -->
+  <nav class="events-nav">
+    <div class="nav-container">
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="upcoming">Événements à Venir</button>
+        <button class="nav-tab" data-tab="past">Événements Passés</button>
+        <button class="nav-tab" data-tab="calendar">Calendrier</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Upcoming Events -->
+  <section class="upcoming-section" id="upcoming">
+    <div class="section-container">
+      <h2 class="section-title">Événements à Venir</h2>
+
+      <div class="events-timeline">
+        <div class="event-item">
+          <div class="event-date">
+            <div class="date-day">15</div>
+            <div class="date-month">DEC</div>
+          </div>
+          <div class="event-content">
+            <div class="event-badge">Tournoi</div>
+            <h3 class="event-title">Tournoi LoL Inter-Classes</h3>
+            <p class="event-description">
+              Tournoi de League of Legends entre les différentes classes. Inscriptions ouvertes à tous les étudiants.
+              Prix pour les trois premières équipes et récompenses spéciales pour les MVP.
+            </p>
+            <div class="event-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    14:00 - 18:00
+                                </span>
+              <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Labo Informatique B
+                                </span>
+              <span class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    32 participants
+                                </span>
+            </div>
+            <div class="event-actions">
+              <button class="btn btn-primary">S'inscrire</button>
+              <!-- Dans chaque événement, le bouton "Plus d'infos" -->
+
+              <button class="btn btn-secondary" routerLink="/evenement/1">
+                Plus d'infos
+              </button>                          Plus d'infos
+
+              <div class="like-dislike-container">
+                <button class="btn-like"
+                        (click)="handleLike()"
+                        style="background: linear-gradient(135deg, rgba(42, 26, 26, 0.9), rgba(58, 34, 34, 0.95)); border: 1px solid rgba(255, 107, 107, 0.3); color: #e8e8e8; padding: 0.5rem 1rem; border-radius: 8px; min-width: 80px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(10px); outline: none; box-shadow: 0 4px 15px rgba(255, 26, 26, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+                  <i class="fas fa-thumbs-up" style="color: #ff6b6b; font-size: 0.9rem; transition: all 0.3s ease;"></i>
+                  <span class="like-count"
+                        [class.animate]="animateLike"
+                        style="font-weight: 600; font-size: 0.85rem; color: #e8e8e8; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+      {{ eventLikes.likes }}
+    </span>
+                </button>
+
+                <button class="btn-dislike"
+                        (click)="handleDislike()"
+                        style="background: linear-gradient(135deg, rgba(42, 26, 26, 0.9), rgba(58, 34, 34, 0.95)); border: 1px solid rgba(255, 107, 107, 0.3); color: #e8e8e8; padding: 0.5rem 1rem; border-radius: 8px; min-width: 80px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(10px); outline: none; box-shadow: 0 4px 15px rgba(255, 26, 26, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+                  <i class="fas fa-thumbs-down" style="color: #ff6b6b; font-size: 0.9rem; transition: all 0.3s ease;"></i>
+                  <span class="dislike-count"
+                        [class.animate]="animateDislike"
+                        style="font-weight: 600; font-size: 0.85rem; color: #e8e8e8; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+      {{ eventLikes.dislikes }}
+    </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">
+            <div class="date-day">22</div>
+            <div class="date-month">DEC</div>
+          </div>
+          <div class="event-content">
+            <div class="event-badge">Workshop</div>
+            <h3 class="event-title">Workshop Valorant</h3>
+            <p class="event-description">
+              Session d'entraînement et stratégies avancées avec nos joueurs expérimentés.
+              Apprenez les techniques de tir, les positions et les stratégies d'équipe pour améliorer votre gameplay.
+            </p>
+            <div class="event-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    16:00 - 19:00
+                                </span>
+              <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Salle Gaming
+                                </span>
+              <span class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    20 participants max
+                                </span>
+            </div>
+            <div class="event-actions">
+              <button class="btn btn-primary">Réserver</button>
+              <button class="btn btn-secondary"routerLink="/evenement/2">Plus d'infos</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">
+            <div class="date-day">12</div>
+            <div class="date-month">JAN</div>
+          </div>
+          <div class="event-content">
+            <div class="event-badge">LAN Party</div>
+            <h3 class="event-title">LAN Party CS2 & Valorant</h3>
+            <p class="event-description">
+              Une soirée gaming complète avec tournois CS2 et Valorant.
+              Nourriture et boissons fournies. Apportez votre setup ou utilisez nos PC gaming.
+            </p>
+            <div class="event-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    18:00 - 02:00
+                                </span>
+              <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Amphithéâtre Principal
+                                </span>
+              <span class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    50 places disponibles
+                                </span>
+            </div>
+            <div class="event-actions">
+              <button class="btn btn-primary">S'inscrire</button>
+              <button class="btn btn-secondary"routerLink="/evenement/3">Plus d'infos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events -->
+  <section class="past-section" id="past" style="display: none;">
+    <div class="section-container">
+      <h2 class="section-title">Événements Passés</h2>
+
+      <div class="past-events-grid">
+        <div class="past-event-card">
+          <div class="past-event-image event-image-1">
+            <div class="past-event-overlay"></div>
+            <div class="past-event-logo">
+              <i class="fab fa-riot-games"></i>
+            </div>
+          </div>
+          <div class="past-event-info">
+            <h3 class="past-event-title">Tournoi LoL Automne 2023</h3>
+            <div class="past-event-date">
+              <i class="fas fa-calendar"></i>
+              15 Novembre 2023
+            </div>
+            <p class="past-event-description">
+              Tournoi annuel de League of Legends avec 16 équipes participantes.
+              Finale épique entre les équipes "Dragons" et "Titans".
+            </p>
+            <div class="past-event-stats">
+              <div class="past-stat">
+                <div class="past-stat-value">16</div>
+                <div class="past-stat-label">Équipes</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">80</div>
+                <div class="past-stat-label">Joueurs</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">1ère</div>
+                <div class="past-stat-label">Dragons</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="past-event-card">
+          <div class="past-event-image event-image-2">
+            <div class="past-event-overlay"></div>
+            <div class="past-event-logo">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+          </div>
+          <div class="past-event-info">
+            <h3 class="past-event-title">Valorant Showdown</h3>
+            <div class="past-event-date">
+              <i class="fas fa-calendar"></i>
+              28 Octobre 2023
+            </div>
+            <p class="past-event-description">
+              Compétition intense de Valorant avec format double élimination.
+              Démonstrations de skill impressionnantes et clutchs mémorables.
+            </p>
+            <div class="past-event-stats">
+              <div class="past-stat">
+                <div class="past-stat-value">12</div>
+                <div class="past-stat-label">Équipes</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">60</div>
+                <div class="past-stat-label">Joueurs</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">1ère</div>
+                <div class="past-stat-label">Phoenix</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="past-event-card">
+          <div class="past-event-image event-image-3">
+            <div class="past-event-overlay"></div>
+            <div class="past-event-logo">
+              <i class="fas fa-skull"></i>
+            </div>
+          </div>
+          <div class="past-event-info">
+            <h3 class="past-event-title">CS2 Championship</h3>
+            <div class="past-event-date">
+              <i class="fas fa-calendar"></i>
+              10 Octobre 2023
+            </div>
+            <p class="past-event-description">
+              Premier tournoi CS2 de la saison avec des équipes venues de toute l'école.
+              Stratégies complexes et plays techniques au rendez-vous.
+            </p>
+            <div class="past-event-stats">
+              <div class="past-stat">
+                <div class="past-stat-value">8</div>
+                <div class="past-stat-label">Équipes</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">40</div>
+                <div class="past-stat-label">Joueurs</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">1ère</div>
+                <div class="past-stat-label">Eagles</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="past-event-card">
+          <div class="past-event-image event-image-4">
+            <div class="past-event-overlay"></div>
+            <div class="past-event-logo">
+              <i class="fas fa-ghost"></i>
+            </div>
+          </div>
+          <div class="past-event-info">
+            <h3 class="past-event-title">Fortnite Duos Cup</h3>
+            <div class="past-event-date">
+              <i class="fas fa-calendar"></i>
+              22 Septembre 2023
+            </div>
+            <p class="past-event-description">
+              Tournoi Fortnite en format duos avec système de points basé sur les éliminations et le placement.
+              Victoire serrée jusqu'à la dernière partie.
+            </p>
+            <div class="past-event-stats">
+              <div class="past-stat">
+                <div class="past-stat-value">25</div>
+                <div class="past-stat-label">Duos</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">50</div>
+                <div class="past-stat-label">Joueurs</div>
+              </div>
+              <div class="past-stat">
+                <div class="past-stat-value">1ère</div>
+                <div class="past-stat-label">Shadow</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar Section -->
+  <section class="calendar-section" id="calendar" style="display: none;">
+    <div class="section-container">
+      <h2 class="section-title">Calendrier des Événements</h2>
+
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <div class="calendar-nav">
+            <button class="calendar-nav-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="calendar-nav-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <h3 class="calendar-title">Décembre 2023</h3>
+          <button class="btn btn-primary">Aujourd'hui</button>
+        </div>
+
+        <div class="calendar-grid">
+          <div class="calendar-day-header">Lun</div>
+          <div class="calendar-day-header">Mar</div>
+          <div class="calendar-day-header">Mer</div>
+          <div class="calendar-day-header">Jeu</div>
+          <div class="calendar-day-header">Ven</div>
+          <div class="calendar-day-header">Sam</div>
+          <div class="calendar-day-header">Dim</div>
+
+          <!-- Empty days -->
+          <div class="calendar-day empty-day"></div>
+          <div class="calendar-day empty-day"></div>
+          <div class="calendar-day empty-day"></div>
+          <div class="calendar-day empty-day"></div>
+
+          <!-- Calendar days -->
+          <div class="calendar-day">
+            <div class="day-number">1</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">2</div>
+          </div>
+
+          <!-- Days with events -->
+          <div class="calendar-day">
+            <div class="day-number">3</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">4</div>
+            <div class="calendar-event">Réunion Gaming</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">5</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">6</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">7</div>
+            <div class="calendar-event">Entraînement LoL</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">8</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">9</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">10</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">11</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">12</div>
+            <div class="calendar-event">LAN Party</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">13</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">14</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">15</div>
+            <div class="calendar-event">Tournoi LoL</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">16</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">17</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">18</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">19</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">20</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">21</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">22</div>
+            <div class="calendar-event">Workshop Valorant</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">23</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">24</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">25</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">26</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">27</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">28</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">29</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">30</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">31</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Navigation tabs functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.nav-tab');
+    const sections = {
+      upcoming: document.getElementById('upcoming'),
+      past: document.getElementById('past'),
+      calendar: document.getElementById('calendar')
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const targetSection = this.getAttribute('data-tab');
+
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+
+        // Show target section, hide others
+        Object.keys(sections).forEach(key => {
+          if (key === targetSection) {
+            sections[key].style.display = 'block';
+          } else {
+            sections[key].style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
