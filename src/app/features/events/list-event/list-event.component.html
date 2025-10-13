@@ -1,0 +1,41 @@
+<div class="container py-4">
+  <h2 class="mb-3">Liste des événements</h2>
+
+  <!-- Recherche -->
+  <input type="text" [(ngModel)]="searchValue"  class="form-control mb-4" placeholder="Rechercher un événement">
+
+  <div class="row g-3" >
+    <div class="col-md-4"  *ngFor="let e of listEvents">
+      <!---Enhance search input and display data--->
+      <div  *ngIf="e.title===searchValue || searchValue==null">
+        <div class="card h-100 shadow-sm">
+          <img src="{{e.imageUrl}}"
+               class="card-img-top img-fluid"
+               style="height: 200px; object-fit: cover;">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ e.title }}</h5>
+            <p class="text-muted">{{e.price}}</p>
+            <p>{{e.location}}</p>
+            <p class="fw-bold">{{e.nbPlaces}}</p>
+            <p>{{ e.description }}</p>
+            <!-- Bouton Like -->
+            <button class="btn btn-sm btn-primary" (click)="nbrLike(e)">
+              👍 Like
+            </button>
+
+            <button class="btn btn-sm btn-danger"
+                    [disabled]="e.nbPlaces==0" (click)="nbrPlaceDecr(e)" ><!--Property Binding--->
+              buy ticket
+            </button>
+            <!--exercice: pipe date--->
+            <span class="ms-2">{{ e.date }}</span>
+            <a [routerLink]="['./details',e.id]">
+              more details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
