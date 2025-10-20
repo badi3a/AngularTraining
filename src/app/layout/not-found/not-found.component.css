@@ -1,0 +1,143 @@
+/* Fond dégradé */
+.gradient-bg {
+  background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+  min-height: 100vh;
+}
+
+/* Style global pour la carte 404 */
+.not-found-card {
+  background-color: #F9FAFB;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Effet de survol */
+.not-found-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Icône d'erreur avec animation */
+.error-icon {
+  font-size: 4rem;
+  color: #FF4B5C;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Animation de pulsation pour l'icône */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Titre */
+.display-4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1F2A44;
+}
+
+/* Texte explicatif */
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #6B7280;
+}
+
+/* Boutons */
+.btn {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Bouton principal */
+.btn-primary {
+  background-color: #FF6F61;
+  border-color: #FF6F61;
+}
+
+.btn-primary:hover {
+  background-color: #F7584A;
+  border-color: #F7584A;
+}
+
+/* Bouton secondaire */
+.btn-outline-secondary {
+  border-color: #7C3AED;
+  color: #7C3AED;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #7C3AED;
+  color: #F9FAFB;
+}
+
+/* Icônes dans les boutons */
+.bi {
+  vertical-align: middle;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+  .not-found-card {
+    padding: 2rem;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .error-icon {
+    font-size: 3rem;
+  }
+}
+
+/* Support pour le mode sombre */
+@media (prefers-color-scheme: dark) {
+  .not-found-card {
+    background-color: #1F2A44;
+    color: #F9FAFB;
+  }
+
+  .display-4 {
+    color: #F9FAFB;
+  }
+
+  .lead {
+    color: #A0AEC0;
+  }
+
+  .btn-outline-secondary {
+    border-color: #A78BFA;
+    color: #A78BFA;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #A78BFA;
+    color: #1F2A44;
+  }
+}

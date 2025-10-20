@@ -1,1 +1,30 @@
-<p>not-found works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <div class="container-fluid gradient-bg d-flex flex-column justify-content-center align-items-center min-vh-100 text-center">
+    <div class="not-found-card shadow-lg p-5 rounded-4">
+      <i class="bi bi-exclamation-circle error-icon display-1 mb-4"></i>
+      <h1 class="display-4 fw-bold">404 - Page Introuvable</h1>
+      <p class="lead text-muted mb-4">
+        Oups ! La page que vous cherchez s'est peut-être égarée dans l'univers.
+      </p>
+      <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+        <a routerLink="/" class="btn btn-primary btn-lg">
+          <i class="bi bi-house-door me-2"></i>Retour à l'accueil
+        </a>
+        <a routerLink="/search" class="btn btn-outline-secondary btn-lg">
+          <i class="bi bi-search me-2"></i>Rechercher un événement
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
