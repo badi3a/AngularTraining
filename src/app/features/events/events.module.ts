@@ -7,6 +7,8 @@ import {ListEventComponent} from './list-event/list-event.component';
 import { DetailEventComponent } from './detail-event/detail-event.component';
 import {FormsModule} from "@angular/forms";
 import { SideBarComponent } from './side-bar/side-bar.component';
+import {EventsService} from '../../shared/data/events.service';
+import { CardEventComponent } from './card-event/card-event.component';
 
 
 @NgModule({
@@ -14,12 +16,14 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     EventsComponent,
     ListEventComponent,
     DetailEventComponent,
-    SideBarComponent
+    SideBarComponent,
+    CardEventComponent
   ],
   imports: [
     CommonModule,
     EventsRoutingModule,
-      FormsModule
+    FormsModule
   ]
+
 })
 export class EventsModule { }

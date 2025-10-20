@@ -5,7 +5,7 @@ import {Eventy} from '../../models/eventy';
   providedIn: 'root'
 })
 export class EventsService {
-     list: Eventy[]=[
+    private list: Eventy[]=[
     {
       id:1,
       title: 'Angular Trainning',
@@ -31,9 +31,14 @@ export class EventsService {
       nbrLike: 0,
     }
   ]
-  constructor() { }
-  getAllEvents(){
+    constructor() { }
+   public getAllEvents(){
        //cnx backend
        return this.list;
+  }
+
+  public getEventById(id:number){
+     //conditions
+      return this.list[id];
   }
 }

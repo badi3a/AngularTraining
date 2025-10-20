@@ -6,7 +6,8 @@ import {EventsService} from '../../../shared/data/events.service';
 @Component({
   selector: 'app-list-event',
   templateUrl: './list-event.component.html',
-  styleUrl: './list-event.component.css'
+  styleUrl: './list-event.component.css',
+
 })
 export class ListEventComponent implements OnInit {
     //attributes =>  var , values
@@ -14,11 +15,11 @@ export class ListEventComponent implements OnInit {
   //title="hello" => we can do this :/ but its not a best practice
   listEvents:Eventy[];
   searchValue:string;
-  constructor(private data: EventsService) {
+  constructor(private eventService:EventsService) {
   }
   //methods => action
   ngOnInit() {
-    this.listEvents= this.data.getAllEvents();
+    this.listEvents=this.eventService.getAllEvents();
   }
   //method to buy ticket => click on the button buy ticket
   //Haider
