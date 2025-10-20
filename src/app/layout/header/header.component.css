@@ -1,0 +1,259 @@
+/* Modern gradient navbar */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+    padding: 1rem 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    animation: slideDown 0.6s ease;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .container-fluid {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Brand styling */
+  .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .navbar-brand:hover::before {
+    left: 100%;
+  }
+  
+  .navbar-brand:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Mobile toggle button */
+  .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .navbar-toggler:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.05);
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.3);
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  
+  /* Navigation links */
+  .navbar-nav {
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 1.3rem !important;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f5576c, #f093fb);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .nav-link:hover::after {
+    left: 100%;
+  }
+  
+  .nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .nav-link:hover::before {
+    width: 80%;
+  }
+  
+  /* Active link state */
+  .nav-link.active {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)) !important;
+    color: #667eea !important;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-link.active::before {
+    display: none;
+  }
+  
+  /* Navbar collapse animation */
+  .navbar-collapse {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navbar-collapse.collapsing {
+    transition: height 0.35s ease;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 991px) {
+    .navbar {
+      padding: 0.75rem 0;
+    }
+  
+    .navbar-brand {
+      font-size: 1.4rem;
+      padding: 0.4rem 1rem;
+    }
+  
+    .navbar-nav {
+      gap: 0.3rem;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+    }
+  
+    .nav-link {
+      padding: 0.8rem 1rem !important;
+      margin: 0.2rem 0;
+      background: rgba(255, 255, 255, 0.05);
+    }
+  
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(8px);
+    }
+  
+    .nav-link.active {
+      background: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      border-left: 4px solid #f5576c;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 1.25rem;
+      padding: 0.35rem 0.8rem;
+    }
+  
+    .nav-link {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Smooth scrolling offset for sticky navbar */
+  html {
+    scroll-padding-top: 80px;
+  }
+  
+  /* Add depth with pseudo-element */
+  .navbar::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.3) 80%,
+      transparent 100%
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }

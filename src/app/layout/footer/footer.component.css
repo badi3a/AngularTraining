@@ -1,0 +1,312 @@
+/* Modern gradient footer */
+footer {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+    position: relative;
+    overflow: hidden;
+    margin-top: auto;
+    animation: fadeInUp 0.8s ease;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+      #667eea 0%, 
+      #764ba2 25%, 
+      #f093fb 50%, 
+      #f5576c 75%, 
+      #667eea 100%
+    );
+    animation: gradientSlide 8s linear infinite;
+    background-size: 200% 100%;
+  }
+  
+  @keyframes gradientSlide {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  
+  footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  footer .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Branding section */
+  footer h5 {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    animation: fadeIn 1s ease 0.2s backwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  footer .text-secondary {
+    color: rgba(255, 255, 255, 0.7) !important;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  footer .text-muted {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.85rem;
+  }
+  
+  /* Section headers */
+  footer h6 {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    animation: fadeIn 1s ease 0.3s backwards;
+  }
+  
+  footer h6::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #f093fb);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  footer .col-md-3:hover h6::after,
+  footer .col-md-6:hover h6::after {
+    width: 60px;
+  }
+  
+  /* Links styling */
+  footer ul {
+    animation: fadeIn 1s ease 0.4s backwards;
+  }
+  
+  footer ul li {
+    margin-bottom: 0.6rem;
+    transition: transform 0.3s ease;
+  }
+  
+  footer ul li:hover {
+    transform: translateX(8px);
+  }
+  
+  footer .link-light {
+    color: rgba(255, 255, 255, 0.75) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    font-size: 0.95rem;
+  }
+  
+  footer .link-light::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #f093fb);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  footer .link-light:hover {
+    color: #ffffff !important;
+  }
+  
+  footer .link-light:hover::before {
+    width: 100%;
+  }
+  
+  /* Contact links with icons effect */
+  footer a[href^="mailto"],
+  footer a[href^="https"] {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  footer a[href^="mailto"]::before {
+    content: '✉';
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  footer a[href^="https"]::before {
+    content: '🌐';
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  footer a[href^="mailto"]:hover::before,
+  footer a[href^="https"]:hover::before {
+    transform: scale(1.2) rotate(10deg);
+  }
+  
+  /* Bottom border section */
+  footer .border-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  footer .border-top .small {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Premium button */
+  footer .btn-outline-light {
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  footer .btn-outline-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  footer .btn-outline-light:hover::before {
+    left: 100%;
+  }
+  
+  footer .btn-outline-light:hover {
+    color: #667eea;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  }
+  
+  footer .btn-outline-light:active {
+    transform: translateY(-1px);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    footer h5 {
+      font-size: 1.5rem;
+    }
+  
+    footer h6 {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+  
+    footer .border-top .container {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  
+    footer .btn-outline-light {
+      width: 100%;
+    }
+  
+    footer ul li:hover {
+      transform: translateX(5px);
+    }
+  }
+  
+  /* Add floating particles effect */
+  footer .container::before,
+  footer .container::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  footer .container::before {
+    background: radial-gradient(circle, #667eea 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  footer .container::after {
+    background: radial-gradient(circle, #f093fb 0%, transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -50px) scale(1.1); }
+    66% { transform: translate(-50px, 50px) scale(0.9); }
+  }
+  
+  /* Smooth entrance for each column */
+  footer .col-md-6 {
+    animation: fadeIn 1s ease 0.2s backwards;
+  }
+  
+  footer .col-md-3:nth-child(2) {
+    animation: fadeIn 1s ease 0.4s backwards;
+  }
+  
+  footer .col-md-3:nth-child(3) {
+    animation: fadeIn 1s ease 0.6s backwards;
+  }

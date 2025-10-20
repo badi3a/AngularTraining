@@ -1,33 +1,20 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark border-bottom shadow-sm">
-  <div class="container">
-    <!-- Logo / Nom de l'application -->
-    <a class="navbar-brand fw-bold" routerLink="/">EventHub</a>
-
-    <!-- Bouton burger (mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Eventfy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Menu principal -->
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" hrefActive="active" aria-current="page">Accueil</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/events" hrefActive="active">Événements</a>
+          <a class="nav-link" routerLink="/events">list event</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/tickets" hrefActive="active">Mes Tickets</a>
+          <a class="nav-link" routerLink="/tickets">list ticket</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/feedback" hrefActive="active">Feedback</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/auth/login" hrefActive="active">Se connecter</a>
-        </li>
-
       </ul>
     </div>
   </div>
