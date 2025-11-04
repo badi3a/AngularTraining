@@ -2,16 +2,23 @@
   <div>
     <label>title</label>
     <input type="text" name="title" class="form-control"
-     [(ngModel)]="event.title" required minlength="3">
+     [(ngModel)]="event.title" required minlength="3" #t="ngModel">
   </div>
-  <div class="alert alert-danger">
-     <div>this field is required</div>
-     <div>minlength is 3</div>
+  <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+     <div *ngIf="t.hasError('required')">
+       this field is required
+     </div>
+     <div *ngIf="t.hasError('minlength')">
+       minlength is 3
+     </div>
   </div>
   <div>
     <label>price</label>
     <input type="number" name="price" class="form-control"
-     [(ngModel)]="event.price" required min="0">
+     [(ngModel)]="event.price" required min="0" #p="ngModel">
+  </div>
+  <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+    this field is required
   </div>
   <br>
   <button class="btn btn-primary" (click)="save()"

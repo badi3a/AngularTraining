@@ -9,6 +9,7 @@ import {Eventy} from '../../../models/eventy';
 export class FormEventComponent {
   event= new Eventy()
   save(){
+    //save => service
     console.log(this.event);
   }
 }
