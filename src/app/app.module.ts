@@ -8,7 +8,9 @@ import {FooterComponent} from './layout/footer/footer.component';
 import {HomeComponent} from './layout/home/home.component';
 import {NotFoundComponent} from './layout/not-found/not-found.component';
 import {EvenementComponent} from '../features/events/evenement/evenement.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UsersModule } from '../features/users/users.module';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    UsersModule
+
+
   ],
   providers: [
     provideClientHydration()

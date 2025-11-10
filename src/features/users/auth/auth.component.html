@@ -1,0 +1,146 @@
+<div class="form-gaming-container">
+  <!-- Header Gaming -->
+  <div class="form-header-gaming">
+    <div class="header-background-gaming">
+      <div class="floating-elements">
+        <div class="floating-element element-1" data-color="red"></div>
+        <div class="floating-element element-2" data-color="red"></div>
+        <div class="floating-element element-3" data-color="red"></div>
+      </div>
+    </div>
+    <div class="header-content-gaming">
+      <h1 class="header-title-gaming">
+        <span class="title-line primary">{{ isLoginMode ? 'CONNEXION' : 'INSCRIPTION' }}</span>
+        <span class="title-line accent">ESPACE GAMING</span>
+      </h1>
+      <p class="header-subtitle-gaming">
+        {{ isLoginMode ? 'Accédez à votre univers de jeu' : 'Rejoignez la communauté gaming' }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Messages d'état -->
+  <div class="form-status-messages">
+    <div *ngIf="showSuccessMessage" class="status-message success-message">
+      <i class="fas fa-check-circle"></i>
+      <div class="message-content">
+        <h3>{{ isLoginMode ? 'Connexion réussie ! 🎮' : 'Inscription réussie ! 🎉' }}</h3>
+        <p>{{ isLoginMode ? 'Redirection en cours...' : 'Votre compte a été créé avec succès' }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="showErrorMessage" class="status-message error-message">
+      <i class="fas fa-exclamation-triangle"></i>
+      <div class="message-content">
+        <h3>{{ isLoginMode ? 'Échec de la connexion ⚠️' : 'Erreur d\'inscription ⚠️' }}</h3>
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulaire -->
+  <div class="form-section-gaming">
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="gaming-form">
+
+      <!-- Indicateur de progression -->
+      <div class="form-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width]="getFormProgress() + '%'"></div>
+        </div>
+        <span class="progress-text">{{ getFormProgress() }}% complété</span>
+      </div>
+
+      <!-- Informations de base -->
+      <div class="form-category">
+        <h2 class="category-title">
+          <i class="fas fa-user-shield"></i>
+          {{ isLoginMode ? 'IDENTIFIANTS DE CONNEXION' : 'INFORMATIONS DU COMPTE' }}
+        </h2>
+
+        <!-- Nom d'utilisateur (inscription seulement) -->
+        <div class="form-group-gaming" *ngIf="!isLoginMode">
+          <label class="form-label">NOM D'UTILISATEUR *</label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-input-gaming"
+            placeholder="Votre pseudo gaming"
+            (blur)="validateField('username')">
+          <div class="error-message" *ngIf="authForm.get('username')?.invalid && authForm.get('username')?.touched">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ getUsernameErrorMessage() }}
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group-gaming">
+          <label class="form-label">ADRESSE EMAIL *</label>
+          <input
+            type="email"
+            formControlName="email"
+            class="form-input-gaming"
+            placeholder="votre@email.com"
+            (blur)="validateField('email')">
+          <div class="error-message" *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ getEmailErrorMessage() }}
+          </div>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="form-group-gaming">
+          <label class="form-label">MOT DE PASSE *</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-input-gaming"
+            placeholder="{{ isLoginMode ? 'Votre mot de passe' : 'Créez un mot de passe sécurisé' }}"
+            (blur)="validateField('password')">
+          <div class="error-message" *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ getPasswordErrorMessage() }}
+          </div>
+        </div>
+
+        <!-- Confirmation mot de passe (inscription seulement) -->
+        <div class="form-group-gaming" *ngIf="!isLoginMode">
+          <label class="form-label">CONFIRMER LE MOT DE PASSE *</label>
+          <input
+            type="password"
+            formControlName="confirmPassword"
+            class="form-input-gaming"
+            placeholder="Retapez votre mot de passe"
+            (blur)="validateField('confirmPassword')">
+          <div class="error-message" *ngIf="(authForm.get('confirmPassword')?.invalid && authForm.get('confirmPassword')?.touched) || (!passwordsMatch() && authForm.get('confirmPassword')?.touched)">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ getConfirmPasswordErrorMessage() }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions-gaming">
+        <button type="button" class="btn-gaming btn-switch-gaming" (click)="toggleMode()">
+          <i class="fas" [class.fa-user-plus]="isLoginMode" [class.fa-sign-in-alt]="!isLoginMode"></i>
+          {{ isLoginMode ? 'CRÉER UN COMPTE' : 'SE CONNECTER' }}
+        </button>
+
+        <button
+          type="submit"
+          class="btn-gaming btn-submit-gaming"
+          [disabled]="authForm.invalid || (!isLoginMode && !passwordsMatch()) || isLoading">
+          <i class="fas" [class.fa-sign-in-alt]="isLoginMode && !isLoading" [class.fa-user-plus]="!isLoginMode && !isLoading" [class.fa-spinner]="isLoading" [class.fa-spin]="isLoading"></i>
+          {{ isLoading ? 'TRAITEMENT...' : (isLoginMode ? 'SE CONNECTER' : 'S\'INSCRIRE') }}
+        </button>
+      </div>
+
+      <!-- Info test -->
+      <div class="test-info" *ngIf="isLoginMode">
+        <div class="test-info-content">
+          <h4><i class="fas fa-vial"></i> MODE TEST</h4>
+          <p>Utilisez <strong>.com</strong> / <strong>password</strong> pour tester</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

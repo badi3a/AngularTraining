@@ -1,0 +1,360 @@
+<div class="form-gaming-container">
+  <!-- Header Gaming -->
+  <div class="form-header-gaming">
+    <div class="header-background-gaming">
+      <div class="floating-elements">
+        <div class="floating-element element-1" data-color="red"></div>
+        <div class="floating-element element-2" data-color="red"></div>
+        <div class="floating-element element-3" data-color="red"></div>
+      </div>
+    </div>
+    <div class="header-content-gaming">
+      <h1 class="header-title-gaming">
+        <span class="title-line primary">CRÉER UN</span>
+        <span class="title-line accent">ÉVÉNEMENT GAMING</span>
+      </h1>
+      <p class="header-subtitle-gaming">Organisez votre tournoi ou événement gaming</p>
+    </div>
+  </div>
+
+  <!-- Messages d'état -->
+  <div class="form-status-messages">
+    <!-- Message de succès -->
+    <div *ngIf="showSuccessMessage" class="status-message success-message">
+      <i class="fas fa-check-circle"></i>
+      <div class="message-content">
+        <h3>Événement créé avec succès ! 🎮</h3>
+        <p>Votre événement a été enregistré et sera visible par la communauté.</p>
+      </div>
+      <button class="close-message" (click)="showSuccessMessage = false">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Message d'erreur général -->
+    <div *ngIf="showErrorMessage" class="status-message error-message">
+      <i class="fas fa-exclamation-triangle"></i>
+      <div class="message-content">
+        <h3>Échec de la création ⚠️</h3>
+        <p>{{ errorMessage }}</p>
+      </div>
+      <button class="close-message" (click)="showErrorMessage = false">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Message d'aide -->
+    <div *ngIf="showHelpMessage" class="status-message help-message">
+      <i class="fas fa-info-circle"></i>
+      <div class="message-content">
+        <h3>Conseils pour votre événement 🚀</h3>
+        <p>Remplissez tous les champs obligatoires (*) et soyez précis dans la description pour attirer plus de participants.</p>
+      </div>
+      <button class="close-message" (click)="showHelpMessage = false">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Formulaire -->
+  <div class="form-section-gaming">
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="gaming-form">
+
+      <!-- Indicateur de progression -->
+      <div class="form-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width]="getFormProgress() + '%'"></div>
+        </div>
+        <span class="progress-text">{{ getFormProgress() }}% complété</span>
+      </div>
+
+      <!-- Informations de base -->
+      <div class="form-category">
+        <h2 class="category-title">
+          <i class="fas fa-info-circle"></i>
+          INFORMATIONS DE BASE
+        </h2>
+
+        <div class="form-grid">
+          <div class="form-group-gaming">
+            <label class="form-label">TITRE DE L'ÉVÉNEMENT *</label>
+            <input
+              type="text"
+              formControlName="title"
+              class="form-input-gaming"
+              placeholder="Tournoi LoL Inter-Classes"
+              (blur)="validateField('title')">
+            <div class="error-message" *ngIf="eventForm.get('title')?.invalid && eventForm.get('title')?.touched">
+              <i class="fas fa-exclamation-circle"></i>
+              Le titre est requis pour identifier votre événement
+            </div>
+            <div class="success-message" *ngIf="eventForm.get('title')?.valid && eventForm.get('title')?.touched">
+              <i class="fas fa-check-circle"></i>
+              Titre valide ✅
+            </div>
+          </div>
+
+          <div class="form-group-gaming">
+            <label class="form-label">TYPE D'ÉVÉNEMENT *</label>
+            <select formControlName="type" class="form-input-gaming" (change)="validateField('type')">
+              <option value="">Sélectionnez un type</option>
+              <option value="tournament">🎯 Tournoi Compétitif</option>
+              <option value="workshop">🛠️ Workshop/Entraînement</option>
+              <option value="lan">🎮 LAN Party</option>
+              <option value="meetup">👥 Rencontre Communautaire</option>
+              <option value="charity">❤️ Événement Caritatif</option>
+            </select>
+            <div class="error-message" *ngIf="eventForm.get('type')?.invalid && eventForm.get('type')?.touched">
+              <i class="fas fa-exclamation-circle"></i>
+              Veuillez sélectionner un type d'événement
+            </div>
+            <div class="success-message" *ngIf="eventForm.get('type')?.valid && eventForm.get('type')?.touched">
+              <i class="fas fa-check-circle"></i>
+              Type sélectionné ✅
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group-gaming">
+          <label class="form-label">DESCRIPTION *</label>
+          <div class="character-count">
+            <div class="character-count">
+              {{ (eventForm.get('description')?.value || '').length }}/500 caractères
+            </div>          </div>
+          <textarea
+            formControlName="description"
+            class="form-input-gaming textarea-gaming"
+            placeholder="Décrivez votre événement en détail..."
+            maxlength="500"
+            (blur)="validateField('description')"></textarea>
+          <div class="error-message" *ngIf="eventForm.get('description')?.invalid && eventForm.get('description')?.touched">
+            <i class="fas fa-exclamation-circle"></i>
+            Une description détaillée aide les participants à comprendre votre événement
+          </div>
+          <div class="success-message" *ngIf="eventForm.get('description')?.valid && eventForm.get('description')?.touched">
+            <i class="fas fa-check-circle"></i>
+            Description complète ✅
+          </div>
+        </div>
+      </div>
+
+      <!-- Date et Heure -->
+      <div class="form-category">
+        <h2 class="category-title">
+          <i class="fas fa-calendar-alt"></i>
+          DATE ET HORAIRE
+        </h2>
+
+        <div class="form-grid">
+          <div class="form-group-gaming">
+            <label class="form-label">DATE *</label>
+            <input
+              type="date"
+              formControlName="date"
+              class="form-input-gaming"
+              (change)="validateDate()">
+            <div class="error-message" *ngIf="eventForm.get('date')?.invalid && eventForm.get('date')?.touched">
+              <i class="fas fa-exclamation-circle"></i>
+              {{ getDateErrorMessage() }}
+            </div>
+            <div class="success-message" *ngIf="eventForm.get('date')?.valid && eventForm.get('date')?.touched">
+              <i class="fas fa-check-circle"></i>
+              Date valide ✅
+            </div>
+          </div>
+
+          <div class="form-group-gaming">
+            <label class="form-label">HEURE DE DÉBUT *</label>
+            <input
+              type="time"
+              formControlName="startTime"
+              class="form-input-gaming"
+              (change)="validateTime()">
+            <div class="error-message" *ngIf="eventForm.get('startTime')?.invalid && eventForm.get('startTime')?.touched">
+              <i class="fas fa-exclamation-circle"></i>
+              L'heure de début est requise
+            </div>
+          </div>
+
+          <div class="form-group-gaming">
+            <label class="form-label">HEURE DE FIN *</label>
+            <input
+              type="time"
+              formControlName="endTime"
+              class="form-input-gaming"
+              (change)="validateTime()">
+            <div class="error-message" *ngIf="eventForm.get('endTime')?.invalid && eventForm.get('endTime')?.touched">
+              <i class="fas fa-exclamation-circle"></i>
+              L'heure de fin est requise
+            </div>
+            <div class="error-message" *ngIf="hasTimeConflict()">
+              <i class="fas fa-clock"></i>
+              L'heure de fin doit être après l'heure de début
+            </div>
+            <div class="success-message" *ngIf="eventForm.get('endTime')?.valid && !hasTimeConflict() && eventForm.get('endTime')?.touched">
+              <i class="fas fa-check-circle"></i>
+              Horaire valide ✅
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Localisation -->
+      <div class="form-category">
+        <h2 class="category-title">
+          <i class="fas fa-map-marker-alt"></i>
+          LOCALISATION
+        </h2>
+
+        <div class="form-grid">
+          <div class="form-group-gaming">
+            <label class="form-label">LIEU *</label>
+            <input
+              type="text"
+              formControlName="location"
+              class="form-input-gaming"
+              placeholder="Labo Informatique B, Salle Gaming..."
+              (blur)="validateField('location')">
+            <div class="error-message" *ngIf="eventForm.get('location')?.invalid && eventForm.get('location')?.touched">
+              <i class="fas fa-exclamation-circle"></i>
+              Le lieu permet aux participants de vous retrouver
+            </div>
+            <div class="success-message" *ngIf="eventForm.get('location')?.valid && eventForm.get('location')?.touched">
+              <i class="fas fa-check-circle"></i>
+              Lieu spécifié ✅
+            </div>
+          </div>
+
+          <div class="form-group-gaming">
+            <label class="form-label">NOMBRE MAX DE PARTICIPANTS</label>
+            <input
+              type="number"
+              formControlName="maxParticipants"
+              class="form-input-gaming"
+              placeholder="50"
+              min="1"
+              (blur)="validateParticipants()">
+            <div class="help-message" *ngIf="!eventForm.get('maxParticipants')?.value">
+              <i class="fas fa-info-circle"></i>
+              Laisser vide pour un nombre illimité de participants
+            </div>
+            <div class="success-message" *ngIf="eventForm.get('maxParticipants')?.value">
+              <i class="fas fa-check-circle"></i>
+              Limite définie : {{ eventForm.get('maxParticipants')?.value }} participants ✅
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jeux -->
+      <div class="form-category">
+        <h2 class="category-title">
+          <i class="fas fa-gamepad"></i>
+          JEUX CONCERNÉS
+        </h2>
+
+        <div class="form-group-gaming">
+          <label class="form-label">JEUX (SÉPARÉS PAR DES VIRGULES)</label>
+          <input
+            type="text"
+            formControlName="games"
+            class="form-input-gaming"
+            placeholder="League of Legends, Valorant, CS2, Fortnite..."
+            (blur)="validateGames()">
+          <div class="help-message">
+            <i class="fas fa-lightbulb"></i>
+            Liste les jeux principaux pour attirer les bons joueurs
+          </div>
+          <div class="success-message" *ngIf="eventForm.get('games')?.value">
+            <i class="fas fa-check-circle"></i>
+            Jeux spécifiés : {{ eventForm.get('games')?.value }} ✅
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge Gaming -->
+      <div class="form-category">
+        <h2 class="category-title">
+          <i class="fas fa-tag"></i>
+          BADGE GAMING
+        </h2>
+
+        <div class="badge-selector-gaming">
+          <div
+            *ngFor="let badge of badgeOptions"
+            class="badge-option-gaming"
+            [class.selected]="selectedBadge === badge"
+            (click)="selectBadge(badge)">
+            <span class="badge-icon">{{ getBadgeIcon(badge) }}</span>
+            {{ badge }}
+          </div>
+        </div>
+
+        <div class="form-group-gaming">
+          <label class="form-label">BADGE PERSONNALISÉ</label>
+          <input
+            type="text"
+            formControlName="customBadge"
+            class="form-input-gaming"
+            placeholder="Créez votre propre badge..."
+            (input)="onCustomBadgeInput()">
+          <div class="help-message">
+            <i class="fas fa-magic"></i>
+            Personnalisez votre badge pour qu'il représente votre événement
+          </div>
+        </div>
+      </div>
+
+      <!-- Résumé de validation -->
+      <div class="validation-summary" *ngIf="eventForm.markAsTouched">
+        <h3 class="summary-title">
+          <i class="fas fa-clipboard-check"></i>
+          RÉSUMÉ DE VALIDATION
+        </h3>
+        <div class="summary-items">
+          <div class="summary-item" [class.valid]="eventForm.get('title')?.valid">
+            <i class="fas" [class.fa-check]="eventForm.get('title')?.valid" [class.fa-times]="!eventForm.get('title')?.valid"></i>
+            Titre de l'événement
+          </div>
+          <div class="summary-item" [class.valid]="eventForm.get('type')?.valid">
+            <i class="fas" [class.fa-check]="eventForm.get('type')?.valid" [class.fa-times]="!eventForm.get('type')?.valid"></i>
+            Type d'événement
+          </div>
+          <div class="summary-item" [class.valid]="eventForm.get('description')?.valid">
+            <i class="fas" [class.fa-check]="eventForm.get('description')?.valid" [class.fa-times]="!eventForm.get('description')?.valid"></i>
+            Description
+          </div>
+          <div class="summary-item" [class.valid]="eventForm.get('date')?.valid">
+            <i class="fas" [class.fa-check]="eventForm.get('date')?.valid" [class.fa-times]="!eventForm.get('date')?.valid"></i>
+            Date
+          </div>
+          <div class="summary-item" [class.valid]="eventForm.get('location')?.valid">
+            <i class="fas" [class.fa-check]="eventForm.get('location')?.valid" [class.fa-times]="!eventForm.get('location')?.valid"></i>
+            Lieu
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions-gaming">
+        <button type="button" class="btn-gaming btn-cancel-gaming" (click)="onCancel()">
+          <i class="fas fa-times"></i>
+          ANNULER
+        </button>
+
+        <div class="submit-section">
+          <div class="form-status" *ngIf="eventForm.markAsTouched">
+            <span class="status-text" [class.ready]="eventForm.valid" [class.error]="eventForm.invalid">
+              <i class="fas" [class.fa-check-circle]="eventForm.valid" [class.fa-exclamation-circle]="eventForm.invalid"></i>
+              {{ eventForm.valid ? 'Prêt à créer !' : 'Champs manquants' }}
+            </span>
+          </div>
+          <button type="submit" class="btn-gaming btn-submit-gaming" [disabled]="eventForm.invalid">
+            <i class="fas fa-rocket"></i>
+            {{ eventForm.valid ? 'CRÉER L\'ÉVÉNEMENT' : 'VERIFIEZ LE FORMULAIRE' }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

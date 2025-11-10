@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EvenementComponent } from './evenement/evenement.component';
+import { FormEventsComponent } from './form-events/form-events.component';
+
 import { DetailEventComponent } from './detail-event/detail-event.component';
 
 const routes: Routes = [
@@ -8,6 +10,8 @@ const routes: Routes = [
     path: '',
     component: EvenementComponent
   },
+  { path: 'formulaire', component: FormEventsComponent },
+
   {
     path: ':id',
     component: DetailEventComponent
