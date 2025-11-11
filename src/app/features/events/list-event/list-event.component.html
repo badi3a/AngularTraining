@@ -2,20 +2,27 @@
   <h2 class="mb-3">Liste des événements</h2>
 
   <!-- Recherche -->
-  <input type="text" class="form-control mb-4"
-         placeholder="Rechercher un événement"
-    ngModel>
+  <input
+    type="text"
+    class="form-control mb-4"
+    placeholder="Rechercher un événement"
+    ngModel
+  />
 
   <div class="row g-3">
-    <div class="card col-md-3">
-      <button class="btn btn-primary" routerLink="./form">
-        add Event
-      </button>
+    <div
+      class="card col-md-3 d-flex justify-content-center align-items-center"
+      style="cursor: pointer"
+      routerLink="form"
+    >
+      <img src="./images/plus-circle.png" width="50%" alt="" />
     </div>
     <app-card-event
-            *ngFor="let e of list" [event]="e"
-            class="col-md-3" (eventNotifParent)="likeEvent($event)">
-
+      *ngFor="let e of list"
+      [event]="e"
+      class="col-md-3"
+      (eventNotifParent)="likeEvent($event)"
+    >
     </app-card-event>
   </div>
 </div>

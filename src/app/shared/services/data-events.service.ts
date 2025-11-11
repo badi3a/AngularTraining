@@ -35,4 +35,7 @@ export class DataEventsService {
   getEventById(id: number): Eventy|undefined {
     return this.listEvents.find((e:Eventy) => e.id === id);
   }
+  addEvent(e:Eventy){
+    this.listEvents.push(e)
+  }
 }

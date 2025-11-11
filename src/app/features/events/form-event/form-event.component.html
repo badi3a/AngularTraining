@@ -1,28 +1,215 @@
-<form #f="ngForm">
-  <div>
-    <label>title</label>
-    <input type="text" name="title" class="form-control"
-     [(ngModel)]="event.title" required minlength="3" #t="ngModel">
-  </div>
-  <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
-     <div *ngIf="t.hasError('required')">
-       this field is required
-     </div>
-     <div *ngIf="t.hasError('minlength')">
-       minlength is 3
-     </div>
-  </div>
-  <div>
-    <label>price</label>
-    <input type="number" name="price" class="form-control"
-     [(ngModel)]="event.price" required min="0" #p="ngModel">
-  </div>
-  <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
-    this field is required
-  </div>
-  <br>
-  <button class="btn btn-primary" (click)="save()"
-          [disabled]="f.invalid">
-    save
-  </button>
-</form>
+<div class="m-4 card p-4">
+  <form #f="ngForm" action="" class="container">
+    <div class="d-flex">
+      <p class="mx-auto fw-bold">Adding a new event</p>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="title">Event title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="event.title"
+          required
+          minlength="3"
+          id="title"
+          #t="ngModel"
+        />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="t.invalid && t.touched && t.hasError('required')"
+        >
+          <p>This field is required</p>
+        </div>
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="t.touched && t.hasError('minlength')"
+        >
+          <p>Minimum length is 3</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <label for="image">Event banner</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="event.imageUrl"
+          required
+          name="image"
+          id="image"
+          #img="ngModel"
+        />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="img.invalid && img.touched && img.hasError('required')"
+        >
+          <p>This field is required</p>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          class="form-control"
+          id="description"
+          [(ngModel)]="event.description"
+          required
+          #desc="ngModel"
+        ></textarea>
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="desc.invalid && desc.touched && desc.hasError('required')"
+        >
+          <p>This field is required</p>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <label for="date">Date</label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            class="form-control"
+            [(ngModel)]="event.date"
+            required
+            [min]="today"
+            #date="ngModel"
+          />
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="date.invalid && date.touched && date.hasError('required')"
+          >
+            <p>This field is required</p>
+          </div>
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="date.touched && date.hasError('min')"
+          >
+            <p>Date cannot be earlier than today</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            step="0.001"
+            id="price"
+            class="form-control"
+            [(ngModel)]="event.price"
+            name="price"
+            required
+            min="0"
+            #price="ngModel"
+          />
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="price.invalid && price.touched && price.hasError('required')"
+          >
+            <p>This field is required</p>
+          </div>
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="price.touched && price.hasError('min')"
+          >
+            <p>Price must be positive</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            name="location"
+            id="location"
+            class="form-control"
+            [(ngModel)]="event.location"
+            required
+            #loc="ngModel"
+          />
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="loc.invalid && loc.touched && loc.hasError('required')"
+          >
+            <p>This field is required</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="organizer">Organizer</label>
+          <select
+            name="organizer"
+            id="organizer"
+            class="form-select"
+            [(ngModel)]="event.organizerId"
+            required
+            #org="ngModel"
+          >
+            <option value="1">Slim</option>
+            <option value="2">Amine</option>
+            <option value="3">Tarek</option>
+          </select>
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="org.invalid && org.touched && org.hasError('required')"
+          >
+            <p>This field is required</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <label for="places">Number of places</label>
+          <input
+            type="number"
+            name="places"
+            id="places"
+            class="form-control"
+            [(ngModel)]="event.nbrPlaces"
+            required
+            #places="ngModel"
+            min="0"
+          />
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="
+              places.invalid && places.touched && places.hasError('required')
+            "
+          >
+            <p>This field is required</p>
+          </div>
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="places.touched && places.hasError('min')"
+          >
+            <p>Number of places must be positive</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col">
+        <button
+          class="btn btn-primary w-100"
+          (click)="save()"
+          [disabled]="f.invalid"
+        >
+          Submit
+        </button>
+      </div>
+      <div class="col">
+        <button class="btn btn-secondary w-100" type="reset">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
