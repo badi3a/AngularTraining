@@ -26,6 +26,33 @@
     <label>Password</label>
     <input type="password" name="psw"
            class="form-control" formControlName="password">
+    <div *ngIf="gForm.get('password')?.hasError('minlength')">
+      the minlength is 8 char
+    </div>
+
+    <div *ngIf="gForm.get('password')?.hasError('pattern')">
+      problem pattern
+    </div>
+  </div>
+  <div formGroupName="address" >
+    <div>
+      <label>Street</label>
+      <input type="text" name="street"
+             class="form-control" formControlName="street">
+    </div>    <div>
+      <label>City</label>
+      <input type="text" name="city"
+             class="form-control" formControlName="city">
+    </div><div>
+      <label>State</label>
+      <input type="text" name="state"
+             class="form-control" formControlName="state">
+    </div><div>
+      <label>Zip</label>
+      <input type="text" name="zip"
+             class="form-control" formControlName="zip">
+    </div>
+
   </div>
   <br>
   <button type="submit" class="btn btn-success" >
