@@ -1,34 +1,106 @@
-<div>
-  <form [formGroup]="formRegister" (ngSubmit)="save()">
-    <div class="form-group">
-      <label>first Name</label>
-      <input type="text" name="fName" class="form-control"
-             formControlName="firstName">
-    </div>
-    <div class="alert alert-danger" *ngIf="formRegister.get('firstName')?.invalid">
-      <div *ngIf="formRegister.get('firstName')?.hasError('required')">
-       this field is required
+<div class="container mt-5">
+  <form [formGroup]="formRegister" (ngSubmit)="save()" class="p-4 border rounded shadow-sm bg-light">
+
+    <h3 class="text-center mb-4 text-primary fw-bold">Register</h3>
+
+    <!-- First Name -->
+    <div class="mb-3">
+      <label class="form-label">First Name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" formControlName="firstName">
+      <div class="text-danger small mt-1" *ngIf="formRegister.get('firstName')?.invalid && formRegister.get('firstName')?.touched">
+        <div *ngIf="formRegister.get('firstName')?.hasError('required')">This field is required</div>
+        <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">Minimum 3 characters</div>
       </div>
-      <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">
-        please give a valid name with 3 char
-      </div>
-    </div>
-    <div class="form-group">
-      <label>last Name</label>
-      <input type="text" name="lName" class="form-control"
-             formControlName="lastName">
-    </div>
-    <div class="form-group">
-      <label>email</label>
-      <input type="email" name="email" class="form-control"
-             formControlName="email">
-    </div>
-    <div class="form-group">
-      <label>password</label>
-      <input type="password" name="psw" class="form-control"
-             formControlName="password">
     </div>
 
-     <input type="submit" value="save" class="btn btn-primary">
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label class="form-label">Last Name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" formControlName="lastName">
+      <div class="text-danger small mt-1" *ngIf="formRegister.get('lastName')?.invalid && formRegister.get('lastName')?.touched">
+        <div *ngIf="formRegister.get('lastName')?.hasError('required')">This field is required</div>
+        <div *ngIf="formRegister.get('lastName')?.hasError('minlength')">Minimum 3 characters</div>
+      </div>
+    </div>
+
+<!-- Email -->
+<div class="mb-3">
+  <label class="form-label">Email <span class="text-danger">*</span></label>
+  <input type="email" class="form-control" formControlName="email">
+  <div class="text-danger small mt-1" *ngIf="formRegister.get('email')?.invalid && formRegister.get('email')?.touched">
+    <div *ngIf="formRegister.get('email')?.hasError('required')">This field is required</div>
+    <div *ngIf="formRegister.get('email')?.hasError('pattern')">Email must be in the correct format </div>
+  </div>
+</div>
+
+
+
+    <!-- Address -->
+    <h5 class="mt-4 text-secondary fw-semibold">Address</h5>
+    <div formGroupName="address" class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Street <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" formControlName="street">
+        <div class="text-danger small mt-1" *ngIf="formRegister.get('address.street')?.invalid && formRegister.get('address.street')?.touched">
+          Street is required
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">City <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" formControlName="city">
+        <div class="text-danger small mt-1" *ngIf="formRegister.get('address.city')?.invalid && formRegister.get('address.city')?.touched">
+          City is required
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">State <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" formControlName="state">
+        <div class="text-danger small mt-1" *ngIf="formRegister.get('address.state')?.invalid && formRegister.get('address.state')?.touched">
+          State is required
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Zip <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" formControlName="zip">
+        <div class="text-danger small mt-1" *ngIf="formRegister.get('address.zip')?.invalid && formRegister.get('address.zip')?.touched">
+          Zip code is required
+        </div>
+      </div>
+    </div>
+
+    <!-- Phones -->
+    <h5 class="mt-4 text-secondary fw-semibold">Phone Numbers</h5>
+    <div formArrayName="phones">
+      <div *ngFor="let phoneCtrl of phones.controls; let i = index" class="d-flex align-items-start mb-2">
+        <div class="flex-grow-1 me-2">
+          <label class="form-label">Phone {{ i + 1 }} <span class="text-danger">*</span></label>
+          <input type="text" [formControlName]="i" class="form-control">
+          <div class="text-danger small mt-1" *ngIf="phoneCtrl.invalid && phoneCtrl.touched">
+            Phone is required
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success mt-4" (click)="addPhone()">+ Add</button>
+      </div>
+    </div>
+
+<!-- Password -->
+<div class="mb-3 mt-4">
+  <label class="form-label">Password <span class="text-danger">*</span></label>
+  <input type="password" class="form-control" formControlName="password">
+  <div class="text-danger small mt-1" *ngIf="formRegister.get('password')?.invalid && formRegister.get('password')?.touched">
+    <div *ngIf="formRegister.get('password')?.hasError('required')">Password is required</div>
+    <div *ngIf="formRegister.get('password')?.hasError('pattern')">
+      Password must be at least 8 characters, include uppercase, lowercase, number, and special character
+    </div>
+  </div>
+</div>
+
+    <!-- Submit -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary px-4" [disabled]="formRegister.invalid">Save</button>
+    </div>
   </form>
 </div>
