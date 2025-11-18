@@ -13,7 +13,9 @@ export class ListEventComponent implements OnInit {
   constructor(private dataService:DataEventsService) {
   }
   ngOnInit() {
-    this.list=this.dataService.getAllEvents();
+   this.dataService.getAllEvents().subscribe(
+     (data:Eventy[]) => {this.list=data}
+   )
   }
 
   likeEvent(event: Eventy){

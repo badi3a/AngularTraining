@@ -14,7 +14,9 @@ export class FormEventComponent {
   constructor(private service:DataEventsService, private router:Router) {
   }
   save() {
-    this.service.addEvent(this.event);
-    this.router.navigate(['events']);
+    this.service.addEvent(this.event).subscribe(
+      (data:Eventy)=>this.router.navigate(['events'])
+    );
+
   }
 }

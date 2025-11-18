@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { ListEventComponent } from './features/events/list-event/list-event.component';
 import { DateTransferPipe } from './shared/pipes/date-transfer.pipe';
 import {SharedModule} from './shared/shared.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {SharedModule} from './shared/shared.module';
     AppRoutingModule,
     FormsModule,
     SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

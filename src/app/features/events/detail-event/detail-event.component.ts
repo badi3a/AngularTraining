@@ -9,13 +9,20 @@ import {Eventy} from '../../../models/eventy';
   styleUrl: './detail-event.component.css'
 })
 export class DetailEventComponent implements OnInit{
-  event?:Eventy;
+  event:Eventy;
   constructor(private currentRoute:ActivatedRoute,
                 private dataService: DataEventsService) {
   }
   ngOnInit() {
-    this.event= this.dataService.getEventById(+this.currentRoute.snapshot.params['id']);
-    console.log(this.event)
+    let id= this.currentRoute.snapshot.params['id'];
+    console.log(id);
+   this.dataService.getEventById(id).subscribe(
+       (data:Eventy[])=> {
+       this.event=data[0]; console.log(data[0]);
+     }
+
+   );
+
   }
 
 }
