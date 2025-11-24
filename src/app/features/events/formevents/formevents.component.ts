@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {EventsService} from '../../../shared/data/events.service';
 import {Eventy} from '../../../models/eventy';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-formevents',
@@ -12,13 +13,18 @@ export class FormeventsComponent {
 
   today: string = new Date().toISOString().split('T')[0];
 
-  constructor(private dataService:EventsService) {}
+  constructor(private dataService:EventsService, ) {}
 
-  save() {
+save() {
+  this.dataService.addEvent(this.eventy).subscribe(
+    (response) => {
+      console.log("Event added:", response);
+      alert("Event added successfully!");
 
-
-  // Call your service here
-    this.dataService.addEvent(this.eventy);
+    },
+  );
 }
+
+
 
 }

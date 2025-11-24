@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <form [formGroup]="formLogin" (ngSubmit)="login()" class="p-4 border rounded shadow-sm bg-light">
+
+    <h3 class="text-center mb-4 text-primary fw-bold">Login</h3>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="form-label">Email <span class="text-danger">*</span></label>
+      <input type="email" class="form-control" formControlName="email">
+      <div class="text-danger small mt-1" *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
+        <div *ngIf="formLogin.get('email')?.hasError('required')">Email is required</div>
+        <div *ngIf="formLogin.get('email')?.hasError('pattern')">Enter a valid email</div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="form-label">Password <span class="text-danger">*</span></label>
+      <input type="password" class="form-control" formControlName="password">
+      <div class="text-danger small mt-1" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
+        <div *ngIf="formLogin.get('password')?.hasError('required')">Password is required</div>
+        <div *ngIf="formLogin.get('password')?.hasError('minlength')">Minimum 8 characters</div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary px-4" [disabled]="formLogin.invalid">Login</button>
+    </div>
+
+  </form>
+</div>

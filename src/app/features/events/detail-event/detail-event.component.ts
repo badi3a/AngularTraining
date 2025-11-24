@@ -13,9 +13,9 @@ export class DetailEventComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private eventService:EventsService) {
   }
-  ngOnInit() {
+ngOnInit() {
    let id= this.route.snapshot.params['id'];
-   this.currentEvent=this.eventService.getEventById(id);
+  this.eventService.getEventById(id).subscribe((data: Eventy) => { this.currentEvent = data; });
   }
 
 }

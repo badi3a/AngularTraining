@@ -33,6 +33,46 @@
           more details
         </a>
       </div>
+          <button class="btn btn-sm btn-outline-danger ms-2"
+        (click)="deleteEvent(e.id)" *ngIf="isAdmin()">
+  🗑 Delete
+</button>
+
+<button class="btn btn-primary btn-sm" (click)="editEvent(e)" *ngIf="isAdmin()">
+  ✏️ Edit
+</button>
+<div  class="card h-100 shadow-sm">
+  <button class="btn btn-primary btn-sm mt-2" 
+          (click)="openCommentModal(e)">
+    💬 Commenter
+  </button>
+
+  <!-- Modal pour cette card -->
+  <div class="modal fade" [id]="'commentModal' + e.id" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter un Commentaire</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <label>Votre Note :</label>
+          <div class="star-rating">
+            <i class="fa fa-star" *ngFor="let s of stars; let i=index"
+               [class.selected]="i < rating"
+               (click)="setRating(i+1)"></i>
+          </div>
+          <textarea class="form-control" rows="3" [(ngModel)]="comment"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button class="btn btn-primary" (click)="submitComment(e)">Envoyer</button>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
+    </div>
+
+  </div>
