@@ -89,14 +89,16 @@ isClient(): boolean {
   getLoggedInObservable(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
-  getCurrentUserId(): number {
-  const token = localStorage.getItem("token");
-  if (!token) return 0;
+getCurrentUserEmail(): string | null {
+  const token = localStorage.getItem("access_token");
+  if (!token) return null;
 
-  const payload = JSON.parse(atob(token.split(".")[1]));
+  const cleanToken = token.replace(/^"(.*)"$/, '$1');
+  const payload = JSON.parse(atob(cleanToken.split('.')[1]));
 
-  return payload.userId; // selon ton JWT
+  return payload.sub;   // "sub" = username/email dans Spring Security
 }
+
 
 
 }

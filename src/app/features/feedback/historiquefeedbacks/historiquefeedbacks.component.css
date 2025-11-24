@@ -1,0 +1,12 @@
+.card-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+.card-footer button {
+  width: 48%;
+}

@@ -1,0 +1,22 @@
+<div class="feedback-container">
+
+  <h2>Ajouter un commentaire</h2>
+
+  <div class="rating">
+    <span *ngFor="let s of stars"
+          (click)="setRating(s)"
+          [class.selected]="s <= rating">
+      ★
+    </span>
+  </div>
+
+  <textarea class="form-control mt-3"
+            placeholder="Votre commentaire..."
+            [(ngModel)]="comment"></textarea>
+
+  <button class="btn btn-success mt-3 w-100"
+          (click)="submit()">
+    Envoyer
+  </button>
+
+</div>
