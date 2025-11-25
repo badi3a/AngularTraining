@@ -57,6 +57,76 @@
         Add comment
       </a>
     </div>
+
+    <div class="mt-4">
+      <h5>Feedbacks</h5>
+      <div *ngIf="feedbacks.length; else noFeedback">
+        <div *ngFor="let fb of feedbacks" class="card mb-2 p-2">
+          <div *ngIf="editFeedbackId !== fb.id">
+            <strong class="me-2">Note:</strong>
+            <span *ngFor="let star of [].constructor(fb.rate)">
+              <img
+                src="star.svg"
+                alt="star"
+                width="18"
+                height="18"
+                style="margin: 2px"
+              />
+            </span>
+            <br />
+            <strong>Comment:</strong> {{ fb.content }}<br />
+            <small>Date: {{ fb.date | date : "short" }}</small>
+          </div>
+          <div *ngIf="editFeedbackId === fb.id">
+            <label class="fw-bold">
+              Note:
+              <input
+                type="number"
+                [(ngModel)]="editRate"
+                min="1"
+                max="5"
+                class="form-control form-control-sm"
+                style="width: 80px; display: inline-block"
+              />
+            </label>
+            <br />
+            <label class="w-100 fw-bold">
+              Comment:
+              <textarea
+                type="text"
+                [(ngModel)]="editContent"
+                class="form-control form-control-sm"
+                style="width: 100%"
+              ></textarea>
+            </label>
+            <br />
+            <button class="btn btn-sm btn-success me-2" (click)="saveEdit(fb)">
+              Save
+            </button>
+            <button class="btn btn-sm btn-secondary" (click)="cancelEdit()">
+              Cancel
+            </button>
+          </div>
+          <div
+            *ngIf="fb.user_id === userId && editFeedbackId !== fb.id"
+            class="mt-2"
+          >
+            <button class="btn btn-sm btn-primary me-2" (click)="startEdit(fb)">
+              Update
+            </button>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteFeedback(fb.id)"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noFeedback>
+        <p>No feedbacks for this event yet.</p>
+      </ng-template>
+    </div>
   </div>
 </div>
 

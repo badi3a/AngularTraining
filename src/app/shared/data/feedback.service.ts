@@ -23,11 +23,11 @@ export class FeedbackService {
     return this.http.get<Feedback>(`${this.urlBackend}${id}`);
   }
 
-  updateFeedback(id: number, feedback: Feedback): Observable<Feedback> {
+  updateFeedback(id: string, feedback: Feedback): Observable<Feedback> {
     return this.http.put<Feedback>(`${this.urlBackend}${id}`, feedback);
   }
 
-  deleteFeedback(id: number): Observable<void> {
+  deleteFeedback(id: string): Observable<void> {
     return this.http.delete<void>(`${this.urlBackend}${id}`);
   }
 }

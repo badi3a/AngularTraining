@@ -5,7 +5,7 @@ export class Eventy {
   //    - It defines only the *shape* (structure) of the data.
   //    - It does not generate JavaScript code (lighter).
   //    - It is perfect for describing data models coming from an API or static data.
-  id: number; // Unique identifier of the event
+  id: string; // Unique identifier of the event
   title: string; // Event title
   description: string; // Event description
   date: Date; // Event date
