@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <textarea
+          class="form-control"
+          placeholder="Input your feedback here"
+          formControlName="content"
+          rows="5"
+        ></textarea>
+        <small
+          class="text-danger"
+          *ngIf="form.get('content')?.touched && form.get('content')?.invalid"
+        >
+          Feedback must be at least 5 characters.
+        </small>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Rate (1 to 5)"
+          formControlName="rate"
+          min="1"
+          max="5"
+        />
+        <small
+          class="text-danger"
+          *ngIf="form.get('rate')?.touched && form.get('rate')?.invalid"
+        >
+          Rating must be between 1 and 5.
+        </small>
+      </div>
+
+      <button class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+</div>

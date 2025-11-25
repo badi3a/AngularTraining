@@ -1,12 +1,11 @@
 <div class="event-detail-container" *ngIf="currentEvent; else notFound">
   <div class="event-card shadow-sm p-3 rounded">
-
     <div class="event-image mb-3 text-center">
       <img
         [src]="currentEvent.imageUrl || 'assets/default-event.jpg'"
         [alt]="currentEvent.title"
         class="img-fluid rounded"
-        style="max-height: 400px; object-fit: cover;"
+        style="max-height: 400px; object-fit: cover"
       />
     </div>
 
@@ -15,7 +14,10 @@
       <p class="event-description mb-3">{{ currentEvent.description }}</p>
 
       <div class="event-meta d-flex flex-column gap-2">
-        <p><i class="bi bi-calendar-event me-2"></i> {{ currentEvent.date | date:'fullDate' }}</p>
+        <p>
+          <i class="bi bi-calendar-event me-2"></i>
+          {{ currentEvent.date | date : "fullDate" }}
+        </p>
         <p><i class="bi bi-geo-alt me-2"></i> {{ currentEvent.location }}</p>
         <p><i class="bi bi-cash-coin me-2"></i> {{ currentEvent.price }} DT</p>
         <p>
@@ -28,7 +30,11 @@
               'bg-danger': currentEvent.nbPlaces === 0
             }"
           >
-            {{ currentEvent.nbPlaces > 0 ? currentEvent.nbPlaces + ' disponibles' : 'Complet' }}
+            {{
+              currentEvent.nbPlaces > 0
+                ? currentEvent.nbPlaces + " disponibles"
+                : "Complet"
+            }}
           </span>
         </p>
         <p>
@@ -43,11 +49,14 @@
       <button class="btn btn-primary" [disabled]="currentEvent.nbPlaces === 0">
         Réserver
       </button>
-      <button class="btn btn-outline-secondary">
-        Partager
-      </button>
+      <button class="btn btn-outline-secondary">Partager</button>
+      <a
+        class="btn btn-outline-secondary"
+        [routerLink]="['/feedback/event', currentEvent.id]"
+      >
+        Add comment
+      </a>
     </div>
-
   </div>
 </div>
 
