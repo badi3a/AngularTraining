@@ -6,13 +6,17 @@ import { FeedbackComponent } from './feedback.component';
 import { FormfeedbackComponent } from './formfeedback/formfeedback.component';
 import { FormsModule } from '@angular/forms';
 import { HistoriquefeedbacksComponent } from './historiquefeedbacks/historiquefeedbacks.component';
+import { UpdateComponent } from './update/update.component';
 
 
 @NgModule({
   declarations: [
     FeedbackComponent,
     FormfeedbackComponent,
-    HistoriquefeedbacksComponent
+    HistoriquefeedbacksComponent,
+    UpdateComponent
+  
+    
   ],
   imports: [
     CommonModule,

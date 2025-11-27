@@ -36,11 +36,7 @@ export class FeedbackService {
       .pipe(catchError(err => throwError(() => new Error(err.message || "Erreur chargement feedbacks"))));
   }
 
-  // ➤ GET feedback by ID
-  getFeedbackById(id: number): Observable<FeedBack> {
-    return this.http.get<FeedBack>(`${this.URL}/${id}`, { headers: this.getAuthHeaders() })
-      .pipe(catchError(err => throwError(() => new Error(err.message || "Erreur récupération feedback"))));
-  }
+
 
   // ➤ GET feedbacks by event ID
   getFeedbackByEvent(eventId: number): Observable<FeedBack[]> {
@@ -62,10 +58,16 @@ export class FeedbackService {
   }
 
   // ➤ PUT : update feedback
-  updateFeedback(id: number, fb: FeedBack): Observable<FeedBack> {
-    return this.http.put<FeedBack>(`${this.URL}/${id}`, fb, { headers: this.getAuthHeaders() })
-      .pipe(catchError(err => throwError(() => new Error(err.message || "Erreur mise à jour feedback"))));
-  }
+updateFeedback(id: number, fb: FeedBack): Observable<FeedBack> {
+  return this.http.put<FeedBack>(`${this.URL}/${id}`, fb, { headers: this.getAuthHeaders() });
+}
+
+getFeedbackById(id: number): Observable<FeedBack> {
+  return this.http.get<FeedBack>(`${this.URL}/${id}`, {
+    headers: this.getAuthHeaders()
+  });
+}
+
 
   // ➤ DELETE : delete feedback
   deleteFeedback(id: number): Observable<void> {

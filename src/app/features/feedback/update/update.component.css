@@ -1,0 +1,37 @@
+.update-container {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.stars {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.stars span {
+  color: #ddd;
+  transition: 0.2s;
+  margin-right: 5px;
+}
+
+.stars span.active {
+  color: orange;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+textarea {
+  resize: none;
+}

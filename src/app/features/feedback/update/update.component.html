@@ -1,0 +1,42 @@
+<div class="update-container">
+
+  <h2>Modifier votre Feedback</h2>
+
+  <div class="card" *ngIf="feedback">
+
+    <h4>{{ feedback.event?.title }}</h4>
+
+    <!-- Stars -->
+    <div class="stars">
+      <span 
+        *ngFor="let s of stars"
+        (click)="setRating(s)"
+        [class.active]="s <= rating">
+        ★
+      </span>
+    </div>
+
+    <!-- Comment -->
+    <textarea 
+      class="form-control mt-3"
+      [(ngModel)]="comment"
+      rows="4"
+      placeholder="Votre commentaire...">
+    </textarea>
+
+    <!-- Buttons -->
+    <div class="actions">
+
+      <button class="btn btn-secondary" routerLink="/feedback/historique">
+        Annuler
+      </button>
+
+      <button class="btn btn-primary" (click)="update()">
+        Enregistrer
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
