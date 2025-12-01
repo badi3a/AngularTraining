@@ -13,40 +13,11 @@
   </div>
 </section>
 
-<!-- Section Features -->
+<!-- Section Cards dynamiques via App-Card -->
 <section class="container py-5">
   <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/ticket.png" class="card-img-top" alt="Tickets">
-        <div class="card-body">
-          <h5 class="card-title">Achetez vos tickets</h5>
-          <p class="card-text">Réservez en quelques clics, rapidement et en toute sécurité.</p>
-          <a href="/tickets" class="btn btn-primary btn-sm">Mes Tickets</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/event.png" class="card-img-top" alt="Événements">
-        <div class="card-body">
-          <h5 class="card-title">Organisez vos événements</h5>
-          <p class="card-text">Publiez, gérez et suivez vos ventes facilement grâce à EventHub.</p>
-          <a href="/events" class="btn btn-outline-primary btn-sm">Voir les événements</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="/images/feedback.png" class="card-img-top" alt="Feedback">
-        <div class="card-body">
-          <h5 class="card-title">Partagez votre avis</h5>
-          <p class="card-text">Aidez la communauté en donnant vos feedbacks et notes.</p>
-          <a href="/feedback" class="btn btn-outline-secondary btn-sm">Donner un feedback</a>
-        </div>
-      </div>
+    <div class="col-md-4" *ngFor="let object of list">
+      <app-card [e]="object" ></app-card>
     </div>
   </div>
 </section>

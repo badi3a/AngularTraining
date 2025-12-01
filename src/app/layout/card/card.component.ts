@@ -1,0 +1,100 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Eventy } from '../../models/eventy';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { EventsService } from '../../shared/data/events.service';
+import { LoginService } from '../../shared/data/login.service';
+import { FeedbackService } from '../../shared/data/feedback.service';
+import { SharedModule } from '../../shared/shared.module';
+import { CommonModule, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
+
+@Component({
+  selector: 'app-card',
+  standalone: true,
+  imports: [
+    SharedModule,
+   CommonModule,
+   RouterModule
+  ],
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.css'
+})
+export class CardComponent {
+   
+ constructor(private route: ActivatedRoute,
+                private eventService:EventsService, private login:LoginService, private feedbackService: FeedbackService) {
+    }
+    eventy: Eventy = new Eventy();
+isUpdate: boolean = false;
+events: Eventy[] = [];  // ← initialisé à un tableau vide pour éviter les erreurs
+
+  searchValue: string;
+  listEvents:Eventy[];
+  @Input() e:Eventy;
+  @Output() notificationLike:EventEmitter<Eventy>
+    = new EventEmitter();
+  likeEvent(e:Eventy) {
+    this.notificationLike.emit(e);
+  }
+
+
+    nbrPlaceDecr(e:Eventy){
+    e.nbPlaces --
+    this.eventService.updateEvent(e.id,e).subscribe()
+  }
+  //Marwa
+  nbrLike(e:Eventy){
+    e.nblikes ++
+    this.eventService.updateEvent(e.id,e).subscribe()
+
+  }
+  deleteEvent(id: number) {
+    this.eventService.deleteEvent(id).subscribe(() => {
+      this.listEvents = this.listEvents.filter(e => e.id !== id);
+    });
+ 
+}
+
+
+
+editEvent(event: Eventy) {
+  this.eventy = event;
+}
+
+update() {
+  this.eventService.updateEvent(this.eventy.id, this.eventy)
+    .subscribe(() => {
+      alert("Updated!");
+    });
+}
+
+  isClient(): boolean {
+  return this.login.isClient();
+}
+
+
+  isAdmin(): boolean {
+  return this.login.isAdmin();
+}
+  selectedEvent!: Eventy;
+  rating = 0;
+  stars = [1,2,3,4,5];
+  comment = '';
+
+
+
+
+
+  // Choisir rating
+  setRating(r: number) {
+    this.rating = r;
+  }
+
+
+
+}
+
+ 
+
+
+
+

@@ -33,20 +33,7 @@
           more details
         </a>
       </div>
-          <button class="btn btn-sm btn-outline-danger ms-2"
-        (click)="deleteEvent(e.id)" *ngIf="isAdmin()">
-  🗑 Delete
-</button>
 
-<button class="btn btn-primary btn-sm" (click)="editEvent(e)" *ngIf="isAdmin()">
-  ✏️ Edit
-</button>
+
 <div  class="card h-100 shadow-sm">
-<button class="btn btn-primary btn-sm mt-2"
-        [routerLink]="['./add', e.id]">
-  💬 Commenter
-</button>
-
-
-
   </div>

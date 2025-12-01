@@ -36,7 +36,7 @@ events: Eventy[] = [];  // ← initialisé à un tableau vide pour éviter les e
   }
   //Marwa
   nbrLike(e:Eventy){
-    e.nbrLike ++
+    e.nblikes ++
     this.eventService.updateEvent(e.id,e).subscribe()
 
   }

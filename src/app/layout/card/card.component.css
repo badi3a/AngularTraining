@@ -1,0 +1,17 @@
+.title{
+  color: red;
+  text-align: center;
+  font-size: x-large;
+}
+
+.star-rating i {
+  font-size: 1.5rem;
+  color: lightgray;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-rating i.selected {
+  color: gold;
+}
+
