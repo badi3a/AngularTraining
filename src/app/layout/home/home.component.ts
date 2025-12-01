@@ -13,10 +13,8 @@ constructor(private service: EventsService ){}
 ngOnInit(): void {
   this.service.getAllEvents().subscribe(
     (events: Eventy[]) => {
-      // trier par likes (décroissant)
       events.sort((a, b) => b.nblikes - a.nblikes);
 
-      // prendre seulement les 3 premiers
       this.list = events.slice(0, 3);
 
       console.log(this.list);
