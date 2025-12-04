@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="feedback-container">
   <h2>Mes Feedbacks</h2>
 
   <div *ngIf="feedbacks.length === 0" class="alert alert-info">
@@ -6,17 +6,19 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let fb of feedbacks">
-      <div class="card h-100 shadow-sm">
-        <img [src]="fb.event.imageUrl" class="card-img-top" style="height:200px; object-fit:cover;">
-        <div class="card-body">
-          <h5 class="card-title">{{ fb.event.title }}</h5>
-          <p class="card-text">{{ fb.message }}</p>
-          <p>Note: <span class="text-warning">{{ fb.rate }} ⭐</span></p>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <button class="btn btn-primary btn-sm" (click)="updateFeedback(fb)">✏️ Modifier</button>
-          <button class="btn btn-danger btn-sm" (click)="deleteFeedback(fb.id)">🗑 Supprimer</button>
+    <div class="col-12" *ngFor="let fb of feedbacks">
+      <div class="feedback-card">
+        <img [src]="fb.event.imageUrl" alt="Event Image">
+        <div class="feedback-content">
+          <div>
+            <h5 class="feedback-title">{{ fb.event.title }}</h5>
+            <p class="feedback-message">{{ fb.message }}</p>
+            <p class="feedback-rate">Note: {{ fb.rate }} ⭐</p>
+          </div>
+          <div class="feedback-footer">
+            <button class="btn-feedback-edit" (click)="updateFeedback(fb)">✏️ Modifier</button>
+            <button class="btn-feedback-delete" (click)="deleteFeedback(fb.id)">🗑 Supprimer</button>
+          </div>
         </div>
       </div>
     </div>

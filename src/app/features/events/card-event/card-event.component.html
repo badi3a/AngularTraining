@@ -1,52 +1,105 @@
+<div *ngIf="e.title === searchValue || searchValue == null">
 
-  <!---Enhance search input and display data--->
-  <div  *ngIf="e.title===searchValue || searchValue==null">
-    <div class="card h-100 shadow-sm" ngHover>
-      <img src="{{e.imageUrl}}"
-           class="card-img-top img-fluid"
-           style="height: 200px; object-fit: cover;">
+  <div class="card h-100">
 
-      <div class="card-body">
+    <!-- Image wrapper -->
+    <div class="card-img-wrapper">
+      <img src="{{ e.imageUrl }}" class="card-img-top img-fluid">
+
+      <!-- Places Badge -->
+      <div class="places-badge"
+           [ngClass]="{'sold-out': e.nbplaces == 0}">
+        🎟️ {{ e.nbplaces == 0 ? 'Sold Out' : e.nbplaces + ' places' }}
+      </div>
+    </div>
+
+    <!-- Card Body -->
+    <div class="card-body">
+
+      <!-- Header (Title + Price) -->
+      <div class="header-section">
         <h5 class="card-title"
-            [ngStyle]="{'color':e.nbPlaces==0?'red':'green'}">
+            [ngStyle]="{'color': e.nbplaces == 0 ? 'red' : 'green'}">
           {{ e.title }}
         </h5>
-        <p class="text-muted">{{e.price|euro}}</p>
-        <p>{{e.location|uppercase}}</p>
-        <p class="fw-bold">{{e.nbPlaces}}</p>
-        <p>{{ e.description }}</p>
-        <!-- Bouton Like -->
-        <button [ngClass]="{'btn':true,'btn-sm':true,
-                          'btn-danger':e.nblikes>=5,
-                          'btn-warning':e.nblikes<5}"
-                (click)="likeEvent(e)">
-          👍 Like {{e.nblikes}}
-        </button>
 
-        <button class="btn btn-sm btn-danger"
-                [disabled]="e.nbPlaces==0" (click)="nbrPlaceDecr(e)" ><!--Property Binding--->
-          buy ticket
+        <p class="price-tag">
+          {{ e.price | euro }}
+        </p>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <p class="location">📍 {{ e.location | uppercase }}</p>
+        <p class="date">📅 {{ e.date }}</p>
+      </div>
+
+      <!-- Description -->
+      <p class="description">
+        {{ e.description }}
+      </p>
+
+      <!-- Like section -->
+      <div class="like-section">
+        <button class="btn-like"
+                [ngClass]="{'active': e.nblikes >= 5}"
+                (click)="likeEvent(e)">
+          <span class="heart">❤️</span>
+          <span class="like-count">{{ e.nblikes }}</span>
         </button>
-        <!--exercice: pipe date--->
-        <span class="ms-2">{{ e.date }}</span>
-        <a [routerLink]="['./details',e.id]">
-          more details
+      </div>
+
+      <!-- Buy Button -->
+      <div class="action-buttons">
+        <button class="btn-buy"
+                [disabled]="e.nbplaces == 0"
+                (click)="nbrPlaceDecr(e)">
+          Buy Ticket
+        </button>
+      </div>
+
+      <!-- Details link -->
+      <div class="details-section">
+        <a class="details-link"
+           [routerLink]="['./details', e.id]">
+          More details
+          <span class="arrow">→</span>
         </a>
       </div>
-          <button class="btn btn-sm btn-outline-danger ms-2"
-        (click)="deleteEvent(e.id)" *ngIf="isAdmin()">
-  🗑 Delete
-</button>
 
-<button class="btn btn-primary btn-sm" (click)="editEvent(e)" *ngIf="isAdmin()">
-  ✏️ Edit
-</button>
-<div  class="card h-100 shadow-sm">
-<button class="btn btn-primary btn-sm mt-2"
-        [routerLink]="['./add', e.id]">
-  💬 Commenter
-</button>
+<div class="action-row d-flex justify-content-between align-items-center mt-3">
+
+  <!-- Commenter -->
+  <a class="details-link"
+     [routerLink]="['./add', e.id]">
+    💬 Comment
+  </a>
+
+  <!-- Voir Feedbacks -->
+  <a class="details-link"
+     [routerLink]="['./feedbacks', e.id]">
+    See Feedbacks
+    <i class="fa-solid fa-comments ms-1"></i>
+  </a>
+
+</div>
+
+<!-- ADMIN ACTIONS -->
+<div class="admin-actions" *ngIf="isAdmin()">
+  <button class="btn-admin-delete"
+          (click)="deleteEvent(e.id)">
+    🗑 Delete
+  </button>
+
+  <button class="btn-admin-edit"
+          (click)="editEvent(e)">
+    ✏️ Edit
+  </button>
+</div>
 
 
 
+    </div>
   </div>
+
+</div>

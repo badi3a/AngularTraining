@@ -1,0 +1,114 @@
+.event-detail-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  max-width: 700px;
+  margin: 2rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.event-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.event-detail-card:hover .event-img {
+  transform: scale(1.05);
+}
+
+.places-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.9);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 700;
+  color: #27ae60;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.places-badge.sold-out {
+  background: rgba(231,76,60,0.95);
+  color: #fff;
+}
+
+.event-body {
+  padding: 1.5rem;
+}
+
+.event-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 1rem;
+}
+
+.event-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.event-meta p {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin: 0.25rem 1rem 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.event-actions .btn-buy {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.event-actions .btn-buy:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+}
+
+.event-actions .btn-share {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.event-actions .btn-share:hover {
+  background: #e2e6ea;
+}
+
+@media (max-width: 768px) {
+  .event-detail-card {
+    margin: 1rem;
+  }
+  .event-title {
+    font-size: 1.5rem;
+  }
+  .event-img {
+    max-height: 250px;
+  }
+}

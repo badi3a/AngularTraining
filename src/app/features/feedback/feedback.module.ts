@@ -7,6 +7,7 @@ import { FormfeedbackComponent } from './formfeedback/formfeedback.component';
 import { FormsModule } from '@angular/forms';
 import { HistoriquefeedbacksComponent } from './historiquefeedbacks/historiquefeedbacks.component';
 import { UpdateComponent } from './update/update.component';
+import { DetailsfeedbackComponent } from './detailsfeedback/detailsfeedback.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UpdateComponent } from './update/update.component';
     FeedbackComponent,
     FormfeedbackComponent,
     HistoriquefeedbacksComponent,
-    UpdateComponent
+    UpdateComponent,
+    DetailsfeedbackComponent
   
     
   ],

@@ -1,39 +1,66 @@
+<div *ngIf="e.title === searchValue || searchValue == null">
 
-  <!---Enhance search input and display data--->
-  <div  *ngIf="e.title===searchValue || searchValue==null">
-    <div class="card h-100 shadow-sm" ngHover>
-      <img src="{{e.imageUrl}}"
-           class="card-img-top img-fluid"
-           style="height: 200px; object-fit: cover;">
+  <div class="card h-100 shadow-sm">
 
-      <div class="card-body">
+    <!-- Image wrapper -->
+    <div class="card-img-wrapper">
+      <img src="{{ e.imageUrl }}" class="card-img-top img-fluid">
+
+      <!-- Places badge -->
+      <div class="places-badge"
+           [ngClass]="{'sold-out': e.nbplaces == 0}">
+        🎟️ {{ e.nbplaces == 0 ? 'Sold Out' : e.nbplaces + ' places' }}
+      </div>
+    </div>
+
+    <div class="card-body">
+
+      <!-- HEADER : Title + Price -->
+      <div class="header-section">
         <h5 class="card-title"
-            [ngStyle]="{'color':e.nbPlaces==0?'red':'green'}">
-          {{ e.title }}
+            [ngStyle]="{'color': e.nbplaces == 0 ? 'red' : 'green'}">
+          🎉 {{ e.title }}
         </h5>
-        <p class="text-muted">{{e.price|euro}}</p>
-        <p>{{e.location|uppercase}}</p>
-        <p class="fw-bold">{{e.nbPlaces}}</p>
-        <p>{{ e.description }}</p>
-        <!-- Bouton Like -->
-        <button [ngClass]="{'btn':true,'btn-sm':true,
-                          'btn-danger':e.nblikes>=5,
-                          'btn-warning':e.nblikes<5}"
-                (click)="likeEvent(e)">
-          👍 Like {{e.nblikes}}
-        </button>
 
-        <button class="btn btn-sm btn-danger"
-                [disabled]="e.nbPlaces==0" (click)="nbrPlaceDecr(e)" ><!--Property Binding--->
-          buy ticket
-        </button>
-        <!--exercice: pipe date--->
-        <span class="ms-2">{{ e.date }}</span>
-        <a [routerLink]="['./details',e.id]">
-          more details
-        </a>
+        <p class="price-tag">
+          💰 {{ e.price | euro }}
+        </p>
       </div>
 
+      <!-- INFO SECTION -->
+      <div class="info-section">
+        <p class="location">📍 {{ e.location | uppercase }}</p>
+        <p class="date">📅 {{ e.date }}</p>
+      </div>
 
-<div  class="card h-100 shadow-sm">
+      <!-- DESCRIPTION -->
+      <p class="description">
+        ✨ {{ e.description }}
+      </p>
+
+      <!-- LIKE SECTION -->
+      <div class="like-section">
+        <button
+          class="btn-like"
+          [ngClass]="{'active': e.nblikes >= 5}"
+          (click)="likeEvent(e)">
+          <span class="heart">❤️</span>
+          <span class="like-count">{{ e.nblikes }}</span>
+          Likes
+        </button>
+      </div>
+
+      <!-- BUY BUTTON -->
+      <div class="action-buttons">
+        <button class="btn-buy"
+                [disabled]="e.nbplaces == 0"
+                (click)="nbrPlaceDecr(e)">
+          🛒 Buy Ticket
+        </button>
+      </div>
+
+    </div>
+
   </div>
+
+</div>

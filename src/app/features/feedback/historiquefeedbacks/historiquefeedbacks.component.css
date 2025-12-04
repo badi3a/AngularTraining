@@ -1,12 +1,120 @@
-.card-title {
-  font-weight: bold;
-  font-size: 1.2rem;
+/* Container général */
+.feedback-container {
+  margin-top: 2rem;
 }
 
-.card-text {
-  font-size: 0.95rem;
+/* Titre */
+.feedback-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
 }
 
-.card-footer button {
-  width: 48%;
+/* Feedback card horizontal */
+.feedback-card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* Image à gauche */
+.feedback-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Contenu à droite */
+.feedback-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Titre et message */
+.feedback-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.feedback-message {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.feedback-rate {
+  font-weight: 600;
+  color: #f1c40f;
+  margin-bottom: 1rem;
+}
+
+/* Footer boutons */
+.feedback-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Boutons */
+.btn-feedback-edit {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-feedback-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-feedback-delete {
+  background: linear-gradient(135deg, #ff4d4d, #e74c3c);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-feedback-delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feedback-card {
+    flex-direction: column;
+  }
+  .feedback-card img {
+    width: 100%;
+    height: 200px;
+  }
+  .feedback-footer {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }

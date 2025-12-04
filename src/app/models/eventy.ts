@@ -8,6 +8,6 @@ export class Eventy {
   price: number;          
   organizerId: number;  
   imageUrl: string;        
-  nbPlaces: number;       
+  nbplaces: number;       
   nblikes: number;         
 }

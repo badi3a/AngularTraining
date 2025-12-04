@@ -38,7 +38,7 @@ events: Eventy[] = [];  // ← initialisé à un tableau vide pour éviter les e
 
 
     nbrPlaceDecr(e:Eventy){
-    e.nbPlaces --
+    e.nbplaces --
     this.eventService.updateEvent(e.id,e).subscribe()
   }
   //Marwa

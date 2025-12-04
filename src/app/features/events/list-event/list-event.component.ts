@@ -43,7 +43,7 @@ ngOnInit() {
     }
   }
  nbrLike(e:Eventy){
-    e.nbrLike ++
+    e.nblikes ++
     this.eventService.updateEvent(e.id,e).subscribe()
 
   }

@@ -1,60 +1,85 @@
-<div class="event-detail-container" *ngIf="currentEvent; else notFound">
-  <div class="event-card shadow-sm p-3 rounded">
+<div class="event-detail-card" *ngIf="currentEvent; else notFound">
 
-    <div class="event-image mb-3 text-center">
-      <img
-        [src]="currentEvent.imageUrl || 'assets/default-event.jpg'"
-        [alt]="currentEvent.title"
-        class="img-fluid rounded"
-        style="max-height: 400px; object-fit: cover;"
-      />
+  <!-- IMAGE + BADGE -->
+  <div class="event-img-wrapper position-relative">
+    <img
+      [src]="currentEvent.imageUrl || 'assets/default-event.jpg'"
+      class="event-img img-fluid"
+      [alt]="currentEvent.title"
+    />
+
+    <span class="places-badge" [ngClass]="{ 'sold-out': currentEvent.nbplaces === 0 }">
+      <i class="bi bi-ticket-perforated-fill me-1"></i>
+      {{ currentEvent.nbplaces > 0 ? currentEvent.nbplaces + ' places' : 'Complet' }}
+    </span>
+  </div>
+
+  <!-- BODY -->
+  <div class="event-body p-3">
+
+    <h2 class="event-title">
+      <i class="bi bi-star-fill text-warning me-2"></i>
+      {{ currentEvent.title }}
+    </h2>
+
+    <p class="event-description">
+      <i class="bi bi-info-circle me-1"></i>
+      {{ currentEvent.description }}
+    </p>
+
+    <div class="event-meta d-flex flex-column gap-2">
+
+      <p>
+        <i class="bi bi-calendar-event me-2 text-primary"></i>
+        {{ currentEvent.date | date : 'fullDate' }}
+      </p>
+
+      <p>
+        <i class="bi bi-geo-alt-fill me-2 text-danger"></i>
+        {{ currentEvent.location }}
+      </p>
+
+      <p>
+        <i class="bi bi-cash-coin me-2 text-success"></i>
+        {{ currentEvent.price }} DT
+      </p>
+
+      <p>
+        <i class="bi bi-people-fill me-2 text-secondary"></i>
+        <strong>Places :</strong>
+        <span class="badge" [ngClass]="{ 'bg-success': currentEvent.nbplaces > 0, 'bg-danger': currentEvent.nbplaces === 0 }">
+          {{ currentEvent.nbplaces > 0 ? currentEvent.nbplaces + ' disponibles' : 'Complet' }}
+        </span>
+      </p>
+
+      <p>
+        <i class="bi bi-heart-fill text-danger me-2"></i>
+        {{ currentEvent.nblikes }} J’aime
+      </p>
+
     </div>
 
-    <div class="event-info">
-      <h2 class="event-title mb-2">{{ currentEvent.title }}</h2>
-      <p class="event-description mb-3">{{ currentEvent.description }}</p>
-
-      <div class="event-meta d-flex flex-column gap-2">
-        <p><i class="bi bi-calendar-event me-2"></i> {{ currentEvent.date | date:'fullDate' }}</p>
-        <p><i class="bi bi-geo-alt me-2"></i> {{ currentEvent.location }}</p>
-        <p><i class="bi bi-cash-coin me-2"></i> {{ currentEvent.price }} DT</p>
-        <p>
-          <i class="bi bi-people me-2"></i>
-          <strong>Places :</strong>
-          <span
-            class="badge"
-            [ngClass]="{
-              'bg-success': currentEvent.nbPlaces > 0,
-              'bg-danger': currentEvent.nbPlaces === 0
-            }"
-          >
-            {{ currentEvent.nbPlaces > 0 ? currentEvent.nbPlaces + ' disponibles' : 'Complet' }}
-          </span>
-        </p>
-        <p>
-          <i class="bi bi-heart-fill text-danger me-2"></i>
-          {{ currentEvent.nbrLike }} J’aime
-        </p>
-      </div>
-    </div>
-
-    <!-- 🔹 Boutons d’action -->
+    <!-- ACTION BUTTONS -->
     <div class="event-actions mt-3 d-flex gap-2">
-      <button class="btn btn-primary" [disabled]="currentEvent.nbPlaces === 0">
+      <button class="btn btn-buy" [disabled]="currentEvent.nbplaces === 0">
+        <i class="bi bi-cart-check-fill me-2"></i>
         Réserver
       </button>
-      <button class="btn btn-outline-secondary">
-        Partager
-      </button>
+        <button class="btn btn-share" routerLink="/events">
+          <i class="bi bi-arrow-left me-2"></i>
+          Retourner
+        </button>
+
+
     </div>
 
   </div>
 </div>
 
-<!-- 🔹 Message si aucun événement trouvé -->
+<!-- NOT FOUND TEMPLATE -->
 <ng-template #notFound>
   <div class="not-found text-center p-5">
-    <h3>🚫 Événement introuvable</h3>
+    <h3><i class="bi bi-x-octagon-fill text-danger me-2"></i> Événement introuvable</h3>
     <p>Vérifie l’identifiant ou retourne à la liste des événements.</p>
   </div>
 </ng-template>

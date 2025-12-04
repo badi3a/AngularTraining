@@ -1,0 +1,64 @@
+/* ===== Container général ===== */
+.container {
+    max-width: 1200px;
+}
+
+/* ===== Header section (titre + bouton) ===== */
+.d-flex h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #005fcc;
+    transform: translateY(-2px);
+}
+
+/* ===== Champ de recherche ===== */
+.form-control {
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    background: #fff;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* ===== Cards des événements ===== */
+app-card-event {
+    display: block;
+}
+
+.col-md-4 {
+    display: flex;
+}
+
+/* ===== Animation d'apparition ===== */
+app-card-event {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
