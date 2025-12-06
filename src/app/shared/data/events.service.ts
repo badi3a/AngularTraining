@@ -106,6 +106,10 @@ export class EventsService {
     }
   }
 
-
+  getEventsByLocation(location: string): Observable<Eventy[]> {
+    return this.http.get<Eventy[]>(`${this.URL}/Same/${location}`, {
+      headers: this.getAuthHeaders()
+    });
+  }
  
 }

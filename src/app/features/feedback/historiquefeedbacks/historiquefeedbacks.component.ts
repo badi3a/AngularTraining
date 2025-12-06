@@ -44,19 +44,21 @@ ngOnInit(): void {
     });
   }
 
-  deleteFeedback(id: number) {
-    if (confirm("Voulez-vous supprimer ce feedback ?")) {
-      this.feedbackService.deleteFeedback(id).subscribe({
-        next: () => {
-          this.feedbacks = this.feedbacks.filter(f => f.id !== id);
-        },
-        error: err => {
-          console.error(err);
-          alert("Suppression impossible.");
-        }
-      });
-    }
+deleteFeedback(id: number) {
+  if (confirm("Voulez-vous supprimer ce feedback ?")) {
+    this.feedbackService.deleteFeedback(id).subscribe({
+      next: (msg) => {
+        alert(msg); // shows "Feedback supprimé avec succès"
+        this.feedbacks = this.feedbacks.filter(f => f.id !== id);
+      },
+      error: err => {
+        console.error(err);
+        alert("Suppression impossible.");
+      }
+    });
   }
+}
+
 
   updateFeedback(feedback: any) {
     this.router.navigate(['/feedback/update', feedback.id]);

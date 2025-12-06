@@ -1,2 +1,118 @@
-   
+<div class="feedback-container" *ngIf="feedbacks && feedbacks.length >= 0">
 
+  <h2 class="title">Feedbacks for this Event</h2>
+
+  <!-- Aucun feedback -->
+  <div *ngIf="feedbacks.length === 0" class="no-feedback">
+    <i class="fa-solid fa-comment-slash"></i>
+    No feedbacks yet for this event.
+  </div>
+
+  <!-- Liste des Feedbacks -->
+  <div class="feedback-card" *ngFor="let fb of feedbacks">
+
+    <div class="user-section">
+      <img class="avatar" [src]="'https://ui-avatars.com/api/?name=' + fb.user.firstName + '+' + fb.user.lastName" />
+      <div class="user-info">
+        <h4>{{ fb.user.firstName }} {{ fb.user.lastName }}</h4>
+        <p class="email">{{ fb.user.email }}</p>
+      </div>
+    </div>
+
+    <div class="feedback-content">
+      <p class="message">"{{ fb.message }}"</p>
+
+      <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        {{ fb.rate }}/5
+      </div>
+
+      <p class="date"><i class="fa-solid fa-calendar"></i> 
+        {{ fb.date | date:'mediumDate' }}
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Événements liés à la même location -->
+<div *ngIf="currentEvent && relatedEvents" class="related-events-container">
+
+  <h3 class="mt-4">Autres événements à {{ currentEvent.location }}</h3>
+
+  <div *ngIf="relatedEvents.length === 0" class="alert alert-secondary">
+    Aucun autre événement disponible.
+  </div>
+
+  <div class="related-events d-flex flex-wrap gap-4">
+    <div class="card" *ngFor="let event of relatedEvents" style="width: 300px;">
+
+  <!-- Image wrapper -->
+  <div class="card-img-wrapper">
+    <img [src]="event.imageUrl || 'assets/default-event.jpg'" class="card-img-top img-fluid" alt="{{ event.title }}">
+    
+    <!-- Places badge -->
+    <div class="places-badge" [ngClass]="{'sold-out': event.nbplaces == 0}">
+      <!-- Ticket SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right:4px;">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 0v8h12V4H2z"/>
+        <path d="M2 4h12v8H2V4z"/>
+      </svg>
+      {{ event.nbplaces == 0 ? 'Sold Out' : event.nbplaces + ' places' }}
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="card-body">
+    
+    <!-- Header section -->
+    <div class="header-section">
+      <h5 class="card-title">{{ event.title }}</h5>
+      <span class="price-tag">
+        <!-- Price SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right:4px;">
+          <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm0 1.5a6.5 6.5 0 1 1-6.5 6.5A6.507 6.507 0 0 1 8 1.5z"/>
+          <path d="M8 4a.5.5 0 0 0-.5.5V6h-1v1h1v2h-1v1h1v1h1v-1h1v-2h-1V6h1V5h-1V4.5A.5.5 0 0 0 8 4z"/>
+        </svg>
+        {{ event.price }} DT
+      </span>
+    </div>
+    
+    <!-- Info section -->
+    <div class="info-section">
+      <p class="location">
+        <!-- Location SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right:4px;">
+          <path d="M8 0a5 5 0 0 0-5 5c0 4 5 11 5 11s5-7 5-11a5 5 0 0 0-5-5zM8 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+        </svg>
+        {{ event.location }}
+      </p>
+      <p class="date">
+        <!-- Calendar SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right:4px;">
+          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1.5A1.5 1.5 0 0 1 16 2.5v11A1.5 1.5 0 0 1 14.5 15h-13A1.5 1.5 0 0 1 0 13.5v-11A1.5 1.5 0 0 1 1.5 1H3V.5a.5.5 0 0 1 .5-.5zM1 4v9.5a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 0 .5-.5V4H1z"/>
+        </svg>
+        {{ event.date | date:'shortDate' }}
+      </p>
+    </div>
+    
+    <!-- Description -->
+    <p class="description">{{ event.description }}</p>
+    
+    <!-- Action buttons -->
+    <div class="action-buttons">
+      <button class="btn-buy" [routerLink]="['/events/details', event.id]">
+        Voir Détails
+        <!-- Arrow SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-left:4px;">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.498.498 0 0 1 .146.354.498.498 0 0 1-.146.354l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+        </svg>
+      </button>
+    </div>
+    
+  </div>
+
+</div>
+  </div>
+
+</div>

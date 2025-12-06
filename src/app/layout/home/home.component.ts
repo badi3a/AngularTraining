@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Eventy } from '../../models/eventy';
 import { EventsService } from '../../shared/data/events.service';
+import { LoginService } from '../../shared/data/login.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,9 @@ import { EventsService } from '../../shared/data/events.service';
 })
 export class HomeComponent implements OnInit{
 list:Eventy[];
-constructor(private service: EventsService ){}
+constructor(private service: EventsService, private login:LoginService ){}
 ngOnInit(): void {
-  this.service.getAllEvents().subscribe(
+  this.login.getAllEvents().subscribe(
     (events: Eventy[]) => {
       events.sort((a, b) => b.nblikes - a.nblikes);
 

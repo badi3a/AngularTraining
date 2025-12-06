@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Eventy} from '../../../models/eventy';
 import { ActivatedRoute } from '@angular/router';
 import { EventsService } from '../../../shared/data/events.service';
 import { LoginService } from '../../../shared/data/login.service';
 import { FeedbackService } from '../../../shared/data/feedback.service';
 import { FeedBack } from '../../../models/feedback';
+import Swal from 'sweetalert2';
 
 declare var bootstrap:any;
 @Component({
@@ -12,7 +13,7 @@ declare var bootstrap:any;
   templateUrl: './card-event.component.html',
   styleUrl: './card-event.component.css'
 })
-export class CardEventComponent {
+export class CardEventComponent implements OnInit {
     constructor(private route: ActivatedRoute,
                 private eventService:EventsService, private login:LoginService, private feedbackService: FeedbackService) {
     }
@@ -28,7 +29,9 @@ events: Eventy[] = [];  // ← initialisé à un tableau vide pour éviter les e
   likeEvent(e:Eventy) {
     this.notificationLike.emit(e);
   }
-
+ngOnInit(): void {
+    this.eventService.getAllEvents();
+}
 
     nbrPlaceDecr(e:Eventy){
     e.nbplaces --
@@ -40,11 +43,33 @@ events: Eventy[] = [];  // ← initialisé à un tableau vide pour éviter les e
     this.eventService.updateEvent(e.id,e).subscribe()
 
   }
-  deleteEvent(id: number) {
-    this.eventService.deleteEvent(id).subscribe(() => {
+deleteEvent(id: number) {
+  Swal.fire({
+    title: 'Supprimer cet événement ?',
+    text: "Cette action ne peut pas être annulée.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui, supprimer',
+    cancelButtonText: 'Annuler',
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      return this.eventService.deleteEvent(id).toPromise()
+        .then(() => true)
+        .catch(error => {
+          Swal.showValidationMessage('Échec de la suppression');
+          throw error;
+        });
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+    if (result.isConfirmed) {
       this.listEvents = this.listEvents.filter(e => e.id !== id);
-    });
- 
+      Swal.fire('Supprimé !', 'L\'événement a été supprimé.', 'success');
+    }
+
+  });
+        this.eventService.getAllEvents();
+
 }
 
 

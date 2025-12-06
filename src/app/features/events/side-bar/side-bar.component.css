@@ -1,82 +1,139 @@
-/* ===== Sidebar Container ===== */
 .sidebar {
-    width: 280px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 100px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 }
 
-/* ===== Header ===== */
+.sidebar-header {
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
 .sidebar-header h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
 }
 
-/* ===== Filters Group ===== */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .filter-group {
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .filter-group h4 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #555;
+  font-size: 1rem;
+  color: #495057;
+  font-weight: 500;
+  margin: 0;
 }
 
-/* ===== Select Inputs ===== */
-.sidebar select {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 12px;
-    border: 1px solid #ccc;
-    background: #fafafa;
-    font-size: 14px;
-    transition: all 0.2s ease-in-out;
+.filter-group select {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
-.sidebar select:focus {
-    border-color: #007bff;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+.filter-group select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
 }
 
-/* ===== Buttons ===== */
+.filter-group select:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.filter-group small {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.apply-btn,
+.reset-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .apply-btn {
-    width: 100%;
-    padding: 12px;
-    background: #007bff;
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    transition: 0.3s;
-    margin-bottom: 10px;
-    cursor: pointer;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-top: 10px;
 }
 
 .apply-btn:hover {
-    background: #005fcc;
+  background: linear-gradient(135deg, #5568d3 0%, #63408b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
-/* Reset Button */
 .reset-btn {
-    width: 100%;
-    padding: 12px;
-    background: #f5f5f5;
-    color: #333;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    transition: 0.3s;
-    cursor: pointer;
+  background: #6c757d;
+  color: white;
 }
 
 .reset-btn:hover {
-    background: #e0e0e0;
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.apply-btn:active,
+.reset-btn:active {
+  transform: translateY(0);
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    margin-bottom: 20px;
+  }
 }

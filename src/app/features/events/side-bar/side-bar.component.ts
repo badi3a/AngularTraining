@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { EventsService } from '../../../shared/data/events.service';
 
 @Component({
@@ -7,12 +7,23 @@ import { EventsService } from '../../../shared/data/events.service';
   styleUrl: './side-bar.component.css'
 })
 export class SideBarComponent {
- inputLocation:String;
- constructor(private eventService:EventsService)
-{}
+  inputLocation: string = '';
+  
+  @Output() locationSelected = new EventEmitter<string>();
+  @Output() resetFilters = new EventEmitter<void>();
 
+  constructor(private eventService: EventsService) {}
 
-serach(){
-  console.log(this.inputLocation);
-}
+  // Appliquer le filtre de location
+  applyLocationFilter() {
+    console.log('🔍 Filtrage par location:', this.inputLocation);
+    // Émettre même si vide (pour afficher tout)
+    this.locationSelected.emit(this.inputLocation);
+  }
+
+  // Réinitialiser tous les filtres
+  reset() {
+    this.inputLocation = '';
+    this.resetFilters.emit();
+  }
 }

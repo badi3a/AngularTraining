@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Eventy } from '../../models/eventy';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { EventsService } from '../../shared/data/events.service';
@@ -18,7 +18,7 @@ import { CommonModule, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
    
  constructor(private route: ActivatedRoute,
                 private eventService:EventsService, private login:LoginService, private feedbackService: FeedbackService) {
@@ -36,7 +36,9 @@ events: Eventy[] = [];  // ← initialisé à un tableau vide pour éviter les e
     this.notificationLike.emit(e);
   }
 
-
+ngOnInit(): void {
+    this.login.getAllEvents();
+}
     nbrPlaceDecr(e:Eventy){
     e.nbplaces --
     this.eventService.updateEvent(e.id,e).subscribe()

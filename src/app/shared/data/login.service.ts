@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../models/user';
 import { Auth } from '../../models/Auth';
 import { JwtDecoderService } from './jwt-decoder.service';
+import { Eventy } from '../../models/eventy';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,13 @@ constructor(private http:HttpClient) {
     return this.http.post<User>(this.URL+"/register",val);
     
   }
+
+    // GET all events (sécurisé)
+    public getAllEvents(): Observable<Eventy[]> {
+  
+        return this.http.get<Eventy[]>(this.URL).pipe(
+        );
+      } 
 
 isAdmin(): boolean {
   const token = localStorage.getItem('access_token');

@@ -1,105 +1,100 @@
-<div *ngIf="e.title === searchValue || searchValue == null">
+<!-- ✅ Supprimez la condition *ngIf sur le div principal -->
+<div class="card h-100">
 
-  <div class="card h-100">
+  <!-- Image wrapper -->
+  <div class="card-img-wrapper">
+    <img src="{{ e.imageUrl }}" class="card-img-top img-fluid" alt="{{ e.title }}">
 
-    <!-- Image wrapper -->
-    <div class="card-img-wrapper">
-      <img src="{{ e.imageUrl }}" class="card-img-top img-fluid">
-
-      <!-- Places Badge -->
-      <div class="places-badge"
-           [ngClass]="{'sold-out': e.nbplaces == 0}">
-        🎟️ {{ e.nbplaces == 0 ? 'Sold Out' : e.nbplaces + ' places' }}
-      </div>
-    </div>
-
-    <!-- Card Body -->
-    <div class="card-body">
-
-      <!-- Header (Title + Price) -->
-      <div class="header-section">
-        <h5 class="card-title"
-            [ngStyle]="{'color': e.nbplaces == 0 ? 'red' : 'green'}">
-          {{ e.title }}
-        </h5>
-
-        <p class="price-tag">
-          {{ e.price | euro }}
-        </p>
-      </div>
-
-      <!-- Info Section -->
-      <div class="info-section">
-        <p class="location">📍 {{ e.location | uppercase }}</p>
-        <p class="date">📅 {{ e.date }}</p>
-      </div>
-
-      <!-- Description -->
-      <p class="description">
-        {{ e.description }}
-      </p>
-
-      <!-- Like section -->
-      <div class="like-section">
-        <button class="btn-like"
-                [ngClass]="{'active': e.nblikes >= 5}"
-                (click)="likeEvent(e)">
-          <span class="heart">❤️</span>
-          <span class="like-count">{{ e.nblikes }}</span>
-        </button>
-      </div>
-
-      <!-- Buy Button -->
-      <div class="action-buttons">
-        <button class="btn-buy"
-                [disabled]="e.nbplaces == 0"
-                (click)="nbrPlaceDecr(e)">
-          Buy Ticket
-        </button>
-      </div>
-
-      <!-- Details link -->
-      <div class="details-section">
-        <a class="details-link"
-           [routerLink]="['./details', e.id]">
-          More details
-          <span class="arrow">→</span>
-        </a>
-      </div>
-
-<div class="action-row d-flex justify-content-between align-items-center mt-3">
-
-  <!-- Commenter -->
-  <a class="details-link"
-     [routerLink]="['./add', e.id]">
-    💬 Comment
-  </a>
-
-  <!-- Voir Feedbacks -->
-  <a class="details-link"
-     [routerLink]="['./feedbacks', e.id]">
-    See Feedbacks
-    <i class="fa-solid fa-comments ms-1"></i>
-  </a>
-
-</div>
-
-<!-- ADMIN ACTIONS -->
-<div class="admin-actions" *ngIf="isAdmin()">
-  <button class="btn-admin-delete"
-          (click)="deleteEvent(e.id)">
-    🗑 Delete
-  </button>
-
-  <button class="btn-admin-edit"
-          (click)="editEvent(e)">
-    ✏️ Edit
-  </button>
-</div>
-
-
-
+    <!-- Places Badge -->
+    <div class="places-badge"
+         [ngClass]="{'sold-out': e.nbplaces == 0}">
+      🎟️ {{ e.nbplaces == 0 ? 'Sold Out' : e.nbplaces + ' places' }}
     </div>
   </div>
 
+  <!-- Card Body -->
+  <div class="card-body">
+
+    <!-- Header (Title + Price) -->
+    <div class="header-section">
+      <h5 class="card-title"
+          [ngStyle]="{'color': e.nbplaces == 0 ? 'red' : 'green'}">
+        {{ e.title }}
+      </h5>
+
+      <p class="price-tag">
+        {{ e.price | euro }}
+      </p>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <p class="location">📍 {{ e.location | uppercase }}</p>
+      <p class="date">📅 {{ e.date }}</p>
+    </div>
+
+    <!-- Description -->
+    <p class="description">
+      {{ e.description }}
+    </p>
+
+    <!-- Like section -->
+    <div class="like-section">
+      <button class="btn-like"
+              [ngClass]="{'active': e.nblikes >= 5}"
+              (click)="likeEvent(e)">
+        <span class="heart">❤️</span>
+        <span class="like-count">{{ e.nblikes }}</span>
+      </button>
+    </div>
+
+    <!-- Buy Button -->
+    <div class="action-buttons">
+      <button class="btn-buy"
+              [disabled]="e.nbplaces == 0"
+              (click)="nbrPlaceDecr(e)">
+        Buy Ticket
+      </button>
+    </div>
+
+    <!-- Details link -->
+    <div class="details-section">
+      <a class="details-link"
+         [routerLink]="['./details', e.id]">
+        More details
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="action-row d-flex justify-content-between align-items-center mt-3">
+
+      <!-- Commenter -->
+      <a class="details-link"
+         [routerLink]="['./add', e.id]">
+        💬 Comment
+      </a>
+
+      <!-- Voir Feedbacks -->
+      <a class="details-link"
+         [routerLink]="['./feedbacks', e.id]">
+        See Feedbacks
+        <i class="fa-solid fa-comments ms-1"></i>
+      </a>
+
+    </div>
+
+    <!-- ADMIN ACTIONS -->
+    <div class="admin-actions" *ngIf="isAdmin()">
+      <button class="btn-admin-delete"
+              (click)="deleteEvent(e.id)">
+        🗑 Delete
+      </button>
+
+      <button class="btn-admin-edit"
+              (click)="editEvent(e)">
+        ✏️ Edit
+      </button>
+    </div>
+
+  </div>
 </div>

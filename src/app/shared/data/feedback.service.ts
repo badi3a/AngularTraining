@@ -69,10 +69,18 @@ getFeedbackById(id: number): Observable<FeedBack> {
 }
 
 
-  // ➤ DELETE : delete feedback
-  deleteFeedback(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.URL}/${id}`, { headers: this.getAuthHeaders() })
-      .pipe(catchError(err => throwError(() => new Error(err.message || "Erreur suppression feedback"))));
-  }
+deleteFeedback(id: number): Observable<string> {
+  return this.http.delete(`${this.URL}/${id}`, { 
+    headers: this.getAuthHeaders(),
+    responseType: 'text' // Important!
+  })
+  .pipe(catchError(err => throwError(() => new Error(err.message || "Erreur suppression feedback"))));
+}
+
+getFeedbacksByEvent(eventId: number): Observable<FeedBack[]> {
+  return this.http.get<FeedBack[]>(`${this.URL}/event/${eventId}`, {
+    headers: this.getAuthHeaders()
+  });
+}
 
 }

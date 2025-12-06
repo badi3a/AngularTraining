@@ -7,7 +7,8 @@ import { UpdateComponent } from './update/update.component';
 const routes: Routes = [
   { path: '', component: FeedbackComponent },
   { path: 'add/:eventId', component: FormfeedbackComponent },
-{ path: 'update/:id', component: UpdateComponent }
+{ path: 'update/:id', component: UpdateComponent },
+
 
 
 ];
