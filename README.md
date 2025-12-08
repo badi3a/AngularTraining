@@ -1,4 +1,4 @@
-# 🛠️ Workshop 5 – Manipulating Modules & Lazy Loading
+# 🛠️ Workshop 4 – Manipulating Modules & Lazy Loading
 
 This branch corresponds to **Workshop n°4: Manipulating Modules & Lazy Loading** of the module *Application côté client 1* at **ESPRIT School of Engineering**.
 

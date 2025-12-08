@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
-import { EventDetailComponent } from './pages/event-detail/event-detail.component';
-import { EventCardComponent } from './components/event-card/event-card.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {ListEventComponent} from './pages/list-event/list-event.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { EventCardComponent } from './event-card/event-card.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {ListEventComponent} from './list-event/list-event.component';
 import {FormsModule} from '@angular/forms';
 import {SharedModule} from '../../shared/shared.module';
 

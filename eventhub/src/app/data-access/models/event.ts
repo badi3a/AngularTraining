@@ -1,10 +1,6 @@
 // We use "export" so that this interface can be imported and reused
 //    in other components, services, or modules of the application.
-export interface Eventy {
-  // We use "interface" instead of "class" here because:
-  //    - It defines only the *shape* (structure) of the data.
-  //    - It does not generate JavaScript code (lighter).
-  //    - It is perfect for describing data models coming from an API or static data.
+export class Eventy {
   id: number;              // Unique identifier of the event
   title: string;           // Event title
   description: string;     // Event description
