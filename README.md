@@ -131,6 +131,10 @@ After completing this workshop, you will have:
 | `ng g s data-access/events --skip-tests`                     | Create EventsService under data-access     |
 
 ---
+### 👨‍🏫 Instructor
+- **[Badia Bouhdid](https://www.linkedin.com/in/badiabouhdid)**
+
+---
 
 🏫 This workshop is part of the **Application côté client 1** module at:  
 
