@@ -9,7 +9,7 @@
   <div class="row g-3">
     <div class="col-md-4" *ngFor="let e of filteredEvents">
       <div class="card h-100 shadow-sm">
-        <img [src]="e.imageUrl" [alt]="e.title"  
+        <img [src]="e.imageUrl" [alt]="e.title"
              class="card-img-top img-fluid"
              style="height: 200px; object-fit: cover;">
 
@@ -19,13 +19,13 @@
           <p>{{ e.description }}</p>
           <p class="fw-bold">{{ e.price | currency:'TND':'symbol-narrow' }}</p>
           <p>Places disponibles : {{ e.nbPlaces }}</p>
-
           <!-- Bouton Like -->
           <button class="btn btn-sm btn-primary"
                   (click)="like(e)"
                   [disabled]="isExpired(e) || e.nbPlaces <= 0">
             👍 Like
           </button>
+          <a [routerLink]="['./',e.id]">see details</a>
           <span class="ms-2">{{ e.nbrLike }}</span>
         </div>
       </div>
