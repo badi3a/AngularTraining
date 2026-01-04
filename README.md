@@ -1,4 +1,4 @@
-# 🅰️ Atelier n°6 Angular — Manipulation de composants imbriqués (Input & Output)
+# 🅰️ Atelier n°7 Angular — Manipulation des Reactive Forms
 
 **Module : Application Côté Client 1**  
 **Année Universitaire : 2025–2026**  
@@ -10,10 +10,11 @@
 
 Cet atelier a pour objectif de permettre aux étudiants de :
 
-- Créer et organiser des **composants Angular imbriqués**
-- Comprendre la **communication entre composants**
-- Utiliser les mécanismes **Input** et **Output** pour l’échange de données
-- Mettre en œuvre une interaction entre composants parent et enfant
+- Créer un formulaire en utilisant l’approche **Reactive Forms**
+- Ajouter des **validateurs prédéfinis**
+- Gérer l’affichage des **messages d’erreurs**
+- Créer et utiliser un **validateur personnalisé**
+- Manipuler des formulaires dynamiques
 
 ---
 
@@ -21,17 +22,18 @@ Cet atelier a pour objectif de permettre aux étudiants de :
 
 Les étudiants doivent réaliser une application Angular permettant de :
 
-- Afficher des informations à l’aide de **composants imbriqués**
-- Transmettre des données du composant parent vers le composant enfant
-- Gérer des actions utilisateur déclenchées depuis un composant enfant
-- Centraliser le traitement des actions au niveau du composant parent
+- Créer un formulaire d’ajout d’événement avec Reactive Forms
+- Valider les champs du formulaire selon les règles demandées
+- Afficher des messages d’erreurs clairs et adaptés
+- Ajouter dynamiquement des champs au formulaire
+- Centraliser la logique de validation et de soumission du formulaire
 
 ---
 
 ## 📤 Rendu attendu
 
-- Une application Angular fonctionnelle
-- Une interaction correcte entre les composants imbriqués
+- Un formulaire Angular fonctionnel basé sur Reactive Forms
+- Une validation correcte des champs du formulaire
 - Un affichage conforme au rendu demandé dans l’énoncé
 - Un projet structuré et exécutable sans erreurs
 
@@ -40,18 +42,18 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°6 – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-input-output/Workshop%20n°6-Manipulate%20Input%26Output%20property.pdf)
+  👉 [Workshop n°7 – Manipulation des Reactive Forms](https://github.com/badi3a/AngularTraining/blob/workshop-07-reactive-forms/Workshop%20n°7%20-Manipulate%20ReactiveForms.pdf)
 
 ### 📚 Documentation officielle Angular
 
-- 🔗 **Composants Angular**  
-  https://angular.dev/guide/components
+- 🔗 **Reactive Forms**  
+  https://angular.dev/guide/reactive-forms
 
-- 🔗 **Communication entre composants**  
-  https://angular.dev/guide/component-interaction
+- 🔗 **Validation des formulaires**  
+  https://angular.dev/guide/form-validation
 
-- 🔗 **Input & Output**  
-  https://angular.dev/guide/inputs-outputs
+- 🔗 **FormArray et formulaires dynamiques**  
+  https://angular.dev/guide/reactive-forms#dynamic-controls-using-form-arrays
 
 ---
 
