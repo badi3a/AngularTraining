@@ -36,28 +36,28 @@ Les étudiants doivent réaliser une application Angular permettant de :
 - Un affichage conforme au rendu demandé dans l’énoncé
 - Un projet structuré et exécutable sans erreurs
 
----
-
-## 🎥 Vidéo explicative
-
-Une vidéo explicative accompagne cet atelier afin de faciliter la compréhension des **Template Driven Forms**.
-
-[![Watch the video](https://img.youtube.com/vi/1VnqIsI-mrU/0.jpg)](https://youtu.be/1VnqIsI-mrU)
 
 ---
 
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°8 – Manipulation des Template Driven Forms](https://github.com/badi3a/AngularTraining/blob/workshop-08-template-driven-forms/Workshop%20n°8-Manipulate%20Template%20driven%20Form.pdf)
+  - 👉 [Workshop n°8 – Manipulation des Template Driven Forms](https://github.com/badi3a/AngularTraining/blob/workshop-08-template-driven-forms/Workshop%20n°8-Manipulate%20Template%20driven%20Form.pdf)
+  - 👉 [Cours – Manipulation des Template Driven Forms](https://github.com/badi3a/AngularTraining/blob/workshop-08-template-driven-forms/cours-Template%20driven%20Form.pdf)
 
 ### 📚 Documentation officielle Angular
 
 - 🔗 **Template Driven Forms**  
-  https://angular.dev/guide/forms
+https://v18.angular.dev/guide/forms/template-driven-forms
 
 - 🔗 **Validation des formulaires**  
-  https://angular.dev/guide/form-validation
+ https://v18.angular.dev/guide/forms/form-validation
+
+### 🎥 Vidéo explicative
+
+Une vidéo explicative accompagne cet atelier afin de faciliter la compréhension des **Template Driven Forms**.
+
+[![Watch the video](https://img.youtube.com/vi/1VnqIsI-mrU/0.jpg)](https://youtu.be/1VnqIsI-mrU)
 
 ---
 
