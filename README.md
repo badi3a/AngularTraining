@@ -42,18 +42,20 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°7 – Manipulation des Reactive Forms](https://github.com/badi3a/AngularTraining/blob/workshop-07-reactive-forms/Workshop%20n°7%20-Manipulate%20ReactiveForms.pdf)
+  - 👉 [Workshop n°7 – Manipulation des Reactive Forms](https://github.com/badi3a/AngularTraining/blob/workshop-07-reactive-forms/Workshop%20n°7%20-Manipulate%20ReactiveForms.pdf)
+  - 👉 [Cours – Manipulation des Reactive Forms](https://github.com/badi3a/AngularTraining/blob/workshop-07-reactive-forms/cours-%20Reactive%20Form.pdf)
 
 ### 📚 Documentation officielle Angular
 
 - 🔗 **Reactive Forms**  
-  https://angular.dev/guide/reactive-forms
+  [Adding a basic form control](https://v18.angular.dev/guide/forms/reactive-forms#adding-a-basic-form-control)
+
 
 - 🔗 **Validation des formulaires**  
-  https://angular.dev/guide/form-validation
+  [Validating form input](https://v18.angular.dev/guide/forms/reactive-forms#validating-form-input)
 
 - 🔗 **FormArray et formulaires dynamiques**  
-  https://angular.dev/guide/reactive-forms#dynamic-controls-using-form-arrays
+    [Grouping form controls](https://v18.angular.dev/guide/forms/reactive-forms#grouping-form-controls)
 
 ---
 
