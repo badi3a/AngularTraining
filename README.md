@@ -1,94 +1,68 @@
-# 🛠️ Workshop 2 – Getting Started with Angular (Angular LTS 18)
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Angular_Logo_SVG.svg/768px-Angular_Logo_SVG.svg.png?20231112001847" alt="Angular Logo" width="120"/>
-</p>
+# 🅰️ Atelier n°2 Angular — Démarrer avec Angular
 
-This branch corresponds to **Workshop n°2: Getting Started with Angular** of the module *Application côté client 1* at **ESPRIT School of Engineering**.
-
----
-
-## 🎯 Objectives
-- Create a modular Angular SPA project (CSR).
-- Understand the project lifecycle and run the application.
-- Install and configure **Bootstrap** as an external dependency.
-- Create the first components (Header, Footer, Home, NotFound).
-- Set up a **404 page** for undefined routes.
+**Module : Application Côté Client 1**  
+**Année Universitaire : 2025–2026**  
+**École : ESPRIT – École d’Ingénieurs**
 
 ---
 
-## 📦 Steps / Instructions
+## 🎯 Objectifs de l’atelier
 
-1. **Create a new Angular project**
-   ```bash
-   ng new eventhub --routing --style=css --standalone=false
-   ```
-    - `--routing` → adds the routing module.
-    - `--style=css` → uses CSS for styles.
-    - `--standalone=false` → generates a modular project (NgModule structure).
+Cet atelier a pour objectif de permettre aux étudiants de :
 
-2. **Run the application**
-   ```bash
-   ng serve --open
-   ```
-   👉 `--open` (or `-o`) opens the browser at `http://localhost:4200`.
-
-3. **Install and configure Bootstrap**
-   ```bash
-   npm install bootstrap
-   ```
-   Then, in `angular.json` under `build → options`, add:
-   ```json
-   "styles": [
-     "node_modules/bootstrap/dist/css/bootstrap.min.css",
-     "src/styles.css"
-   ],
-   "scripts": [
-     "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-   ]
-   ```
-
-4. **Generate components for the global layout**
-   ```bash
-   ng g c layout/header --skip-tests
-   ng g c layout/footer --skip-tests
-   ng g c layout/not-found --skip-tests
-   ng g c features/home/pages/home --skip-tests
-   ```
-   👉 You are free to design the CSS. You can take inspiration from:
-    - https://getbootstrap.com/docs/5.3/components/
-    - https://getbootstrap.com/docs/5.3/examples/
-
-5. **Configure the routing**  
-   In `app-routing.module.ts`:
-   ```ts
-   const routes: Routes = [
-     { path: '', component: HomeComponent },
-     { path: '**', component: NotFoundComponent }
-   ];
-   ```
-    - `/` → displays the Home page.
-    - Any other URL → displays the NotFound page.
+- Créer un projet **SPA Angular modulaire (CSR)**
+- Comprendre le cycle de vie d’un projet Angular et lancer l’application
+- Installer et configurer **Bootstrap** comme dépendance externe
+- Créer les premiers composants (Header, Footer, Home)
+- Mettre en place une page **404 (Not Found)**
 
 ---
 
-## 📝 Summary of Commands
+## 📦 Travail demandé
 
-| Command                                                   | Purpose                              |
-|-----------------------------------------------------------|--------------------------------------|
-| `ng new eventhub --routing --style=css --standalone=false` | Create a new modular Angular project |
-| `ng serve --open`                                         | Run the project locally              |
-| `npm install bootstrap`                                   | Install Bootstrap                    |
-| `ng g c layout/header --skip-tests`                       | Generate the Header component        |
-| `ng g c layout/footer --skip-tests`                       | Generate the Footer component        |
-| `ng g c layout/not-found --skip-tests`                    | Generate the NotFound component      |
-| `ng g c features/home/pages/home --skip-tests`            | Generate the Home component          |
+Les étudiants doivent réaliser une application Angular permettant de :
+
+- Mettre en place un projet Angular modulaire bien structuré
+- Intégrer Bootstrap pour améliorer l’interface
+- Créer une page d’accueil contenant un **Header** et un **Footer**
+- Configurer le routage de l’application
+- Gérer les routes inexistantes via une page **NotFound**
 
 ---
-### 👨‍🏫 Instructor
-- **[Badia Bouhdid](https://www.linkedin.com/in/badiabouhdid)**
 
-🏫 This training is delivered as part of the **Client-Side Application 1** module at [Esprit School of Engineering](https://www.esprit.tn)
+## 📤 Rendu attendu
+
+- Un projet Angular modulaire bien structuré
+- Bootstrap intégré pour le design
+- Une page d’accueil fonctionnelle avec Header et Footer
+- Une page 404 opérationnelle pour les routes inexistantes
+
+---
+
+## 📂 Ressources
+
+- 📄 **Énoncé du Workshop (PDF)**  
+  👉 [Workshop n°2 – Démarrer avec Angular](https://github.com/badi3a/AngularTraining/blob/workshop-02-getting-started/Workshop%20n°2%20-Démarrer%20avec%20Angular.pdf)
+  
+- 📄 **cours (PDF)**
+- 👉 [cours – Manipulation composant](https://github.com/badi3a/AngularTraining/blob/workshop-02-getting-started/Cours%20n°2%20-Manipulation%20de%20composants-%202526.pdf)
+- 👉 [cours – Routage](https://github.com/badi3a/AngularTraining/blob/workshop-02-getting-started/Cours%20-%20Routage.pdf)
 
 
+### 📚 Documentation officielle Angular (v18)
 
+- 🔗 **Routage Angular**  
+ https://v18.angular.dev/guide/routing/router-tutorial
 
+### 📚 Documentation officielle Bootstrap
+
+- 🔗 **Composants Bootstrap**  
+  https://getbootstrap.com/docs/5.3/components/
+
+---
+
+## 🏫 Cadre pédagogique
+
+### Enseignante : [Badia Bouhdid](https://www.linkedin.com/in/badiabouhdid)
+
+Cet atelier s’inscrit dans le cadre du **module Application Côté Client 1**, destiné aux étudiants de **4ᵉ année – Option TWIN**, à l’**École d’Ingénieurs ESPRIT**.
