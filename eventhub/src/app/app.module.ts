@@ -8,7 +8,9 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import {FormsModule} from '@angular/forms';
-
+import {SharedModule} from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import {CardComponent} from './layout/card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +22,11 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    HttpClientModule,
+    CardComponent
   ],
-
   providers: [],
   bootstrap: [AppComponent]
 })

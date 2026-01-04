@@ -1,0 +1,86 @@
+<div class="container mt-5 mb-5"> <!-- mb-5 pour espace avec le footer -->
+  <div class="card p-4 shadow">
+    <h3 class="text-center mb-4">Créer un compte</h3>
+    <form [formGroup]="formRegister" (ngSubmit)="save()">
+
+      <!-- Ligne 1 : Prénom & Nom -->
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label>Prénom</label>
+          <input type="text" class="form-control" formControlName="firstName">
+          <div class="alert alert-danger mt-1" *ngIf="formRegister.get('firstName')?.invalid && formRegister.get('firstName')?.touched">
+            <div *ngIf="formRegister.get('firstName')?.hasError('required')">Ce champ est obligatoire</div>
+            <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">Le prénom doit contenir au moins 3 caractères</div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label>Nom</label>
+          <input type="text" class="form-control" formControlName="lastName">
+          <div class="alert alert-danger mt-1" *ngIf="formRegister.get('lastName')?.invalid && formRegister.get('lastName')?.touched">
+            <div *ngIf="formRegister.get('lastName')?.hasError('required')">Ce champ est obligatoire</div>
+            <div *ngIf="formRegister.get('lastName')?.hasError('minlength')">Le nom doit contenir au moins 3 caractères</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ligne 2 : Email & Mot de passe -->
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email">
+          <div class="alert alert-danger mt-1" *ngIf="formRegister.get('email')?.hasError('pattern') && formRegister.get('email')?.touched">
+            Email invalide (ex : nom&#64;esprit.tn)
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label>Mot de passe</label>
+          <input type="password" class="form-control" formControlName="password">
+          <div class="alert alert-danger mt-1" *ngIf="formRegister.get('password')?.hasError('pattern') && formRegister.get('password')?.touched">
+            Mot de passe invalide (min 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial)
+          </div>
+        </div>
+      </div>
+
+      <!-- Adresse -->
+      <div formGroupName="address" class="mt-4">
+        <h5>Adresse</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" formControlName="street" placeholder="Rue" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <input type="text" formControlName="city" placeholder="Ville" class="form-control">
+          </div>
+          <div class="col-md-6 mt-2">
+            <input type="text" formControlName="state" placeholder="État" class="form-control">
+          </div>
+          <div class="col-md-6 mt-2">
+            <input type="text" formControlName="zip" placeholder="Code postal" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Téléphones -->
+      <div formArrayName="phones" class="mt-4">
+        <h5>Téléphones</h5>
+        <div *ngFor="let phone of phones.controls; let i = index" class="mb-2">
+          <input [formControlName]="i" placeholder="Numéro de téléphone" class="form-control">
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm mt-1" (click)="addPhone()">+ Ajouter un téléphone</button>
+      </div>
+
+      <!-- Boutons -->
+      <div class="row g-3 mt-4">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-secondary w-100" (click)="formRegister.reset()">Annuler</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

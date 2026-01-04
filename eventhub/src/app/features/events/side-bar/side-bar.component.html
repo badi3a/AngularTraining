@@ -1,0 +1,120 @@
+<div class="p-3 border shadow-sm rounded">
+  <h4 class="mb-4 fw-bold">Filtres</h4>
+
+  <!-- Recherche par titre -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">
+      <i class="bi bi-search me-2"></i>Titre
+    </label>
+    <input 
+      type="text" 
+      [(ngModel)]="searchText" 
+      class="form-control" 
+      placeholder="Rechercher par titre..."
+      (input)="applyFilter()"
+    >
+  </div>
+
+  <!-- Filtre par lieu -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">
+      <i class="bi bi-geo-alt me-2"></i>Lieu
+    </label>
+    <select 
+      [(ngModel)]="selectedLocation" 
+      class="form-select" 
+      (change)="applyFilter()"
+    >
+      <option value="">Tous les lieux</option>
+      <option value="Tunis">Tunis</option>
+      <option value="Sfax">Sfax</option>
+      <option value="Sousse">Sousse</option>
+      <option value="Bizerte">Bizerte</option>
+    </select>
+  </div>
+
+  <!-- Filtre par prix -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">
+      <i class="bi bi-currency-dollar me-2"></i>Prix (TND)
+    </label>
+    <div class="row g-2">
+      <div class="col-6">
+        <input 
+          type="number" 
+          [(ngModel)]="minPrice" 
+          class="form-control form-control-sm" 
+          placeholder="Min"
+          (input)="applyFilter()"
+        >
+      </div>
+      <div class="col-6">
+        <input 
+          type="number" 
+          [(ngModel)]="maxPrice" 
+          class="form-control form-control-sm" 
+          placeholder="Max"
+          (input)="applyFilter()"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtre par date -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">
+      <i class="bi bi-calendar me-2"></i>Date
+    </label>
+    <select 
+      [(ngModel)]="dateFilter" 
+      class="form-select" 
+      (change)="applyFilter()"
+    >
+      <option value="all">Toutes les dates</option>
+      <option value="upcoming">À venir</option>
+      <option value="thisWeek">Cette semaine</option>
+      <option value="thisMonth">Ce mois-ci</option>
+    </select>
+  </div>
+
+  <!-- Filtre par disponibilité -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">
+      <i class="bi bi-ticket me-2"></i>Disponibilité
+    </label>
+    <select 
+      [(ngModel)]="availabilityFilter" 
+      class="form-select" 
+      (change)="applyFilter()"
+    >
+      <option value="all">Tous</option>
+      <option value="available">Places disponibles</option>
+      <option value="full">Complet</option>
+    </select>
+  </div>
+
+  <!-- Filtre par organisateur -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">
+      <i class="bi bi-person me-2"></i>Organisateur
+    </label>
+    <select 
+      [(ngModel)]="organizerId" 
+      class="form-select" 
+      (change)="applyFilter()"
+    >
+      <option [value]="null">Tous les organisateurs</option>
+      <option [value]="101">Organisateur 101</option>
+      <option [value]="102">Organisateur 102</option>
+      <option [value]="103">Organisateur 103</option>
+    </select>
+  </div>
+
+  <!-- Bouton réinitialiser -->
+  <button 
+    class="btn btn-outline-secondary w-100 mt-3" 
+    (click)="resetFilters()"
+  >
+    <i class="bi bi-arrow-clockwise me-2"></i>Réinitialiser
+  </button>
+</div>

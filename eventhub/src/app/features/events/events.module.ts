@@ -1,29 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
-import { EventDetailComponent } from './pages/event-detail/event-detail.component';
-import { EventCardComponent } from './components/event-card/event-card.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {ListEventComponent} from './pages/list-event/list-event.component';
-import {FormsModule} from '@angular/forms';
+import {ListEventComponent} from './list-event/list-event.component';
 import {SharedModule} from '../../shared/shared.module';
+import {FormsModule} from '@angular/forms';
+import { DetailEventComponent } from './detail-event/detail-event.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
+import { FormEventComponent } from './form-event/form-event.component';
+import { FeedbacksModule } from '../feedbacks/feedbacks.module';
+import {CardComponent} from '../../layout/card/card.component';
 
 @NgModule({
   declarations: [
     EventsComponent,
-    EventDetailComponent,
-    EventCardComponent,
-    NavBarComponent,
-    ListEventComponent
+    ListEventComponent,
+    DetailEventComponent,
+    SideBarComponent,
+    FormEventComponent
   ],
   imports: [
     CommonModule,
     EventsRoutingModule,
-    FormsModule,
     SharedModule,
-  ]
+    FormsModule,
+    FeedbacksModule,
+    CardComponent
+  ],
+ // providers:[DataEventsService]
 })
 export class EventsModule { }

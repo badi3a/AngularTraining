@@ -1,0 +1,24 @@
+<h1>{{title}}</h1>
+<input name="search" placeholder="search by id"
+       type="text" class="form-control"
+       [(ngModel)]="search">
+
+<table class="table">
+  <tr><th>id</th><th>price</th><th>available</th></tr>
+  <tr *ngFor = "let t of tickets" [hidden]="!(t.id==search) && search" >
+    <td>
+      {{t.id}}
+    </td>
+    <td>
+      {{t.price}}
+    </td>
+    <td>{{t.valid}}</td>
+    <td>
+      <button class="btn btn-sm btn-primary"
+              [disabled]="!t.valid"
+              (click)="validateTicket(t)">
+      validate
+      </button>
+    </td>
+  </tr>
+</table>

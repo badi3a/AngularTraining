@@ -1,0 +1,72 @@
+<div *ngIf="event.title === searchValue || searchValue == null">
+
+  <div class="card h-100 shadow-sm" NgHover>
+
+    <!-- Image -->
+    <img src="{{ event.imageUrl }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
+
+    <!-- Contenu -->
+    <div class="card-body">
+
+      <!-- Titre + disponibilité -->
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="card-title"
+            [ngStyle]="{'color': event.nbrPlaces === 0 ? 'red' : 'green'}">
+          {{ event.title }}
+        </h5>
+
+        <span class="badge bg-secondary">
+          {{ event.nbrPlaces }} places
+        </span>
+      </div>
+
+      <!-- Prix + localisation -->
+      <p class="text-muted mb-1">
+        {{ event.price | euro }} | {{ event.location }}
+      </p>
+
+      <!-- Description -->
+      <p class="mb-2">{{ event.description }}</p>
+
+
+      <!-- Boutons -->
+      <div class="d-flex gap-2 mb-2">
+        <button
+          [ngClass]="{
+            'btn': true,
+            'btn-danger': event.nbrLikes >= 5,
+            'btn-warning': event.nbrLikes < 5
+          }"
+          (click)="notifParent(event)">
+          👍 Like {{ event.nbrLikes }}
+        </button>
+
+        <button
+          class="btn btn-sm btn-primary"
+          [disabled]="event.nbrPlaces == 0"
+          (click)="nbrPlaceDecr(event)">
+          Buy ticket
+        </button>
+
+        <button
+          class="btn btn-sm btn-outline-danger"
+          (click)="deleteEvent(event)">
+          Delete
+        </button>
+      </div>
+
+      <!-- Date + lien -->
+      <div class="d-flex justify-content-between align-items-center">
+        <span>{{ event.date | dateTransfer }}</span>
+
+        <a [routerLink]="['./detail', event.id]"
+           class="btn btn-success btn-sm">
+          More details
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { TicketsRoutingModule } from './tickets-routing.module';
 import { TicketsComponent } from './tickets.component';
-
-
+import {ListTicketComponent} from './list-ticket/list-ticket.component';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
-    TicketsComponent
+    TicketsComponent,
+    ListTicketComponent
   ],
   imports: [
     CommonModule,
-    TicketsRoutingModule
+    TicketsRoutingModule,
+    FormsModule //to use correctly the directive ngModel
   ]
 })
 export class TicketsModule { }
