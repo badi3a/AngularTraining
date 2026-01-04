@@ -1,4 +1,4 @@
-# 🅰️ Atelier n°8 Angular — Manipulation des Template Driven Forms
+# 🅰️ Atelier n°9 Angular — Manipulation des services (HttpClient)
 
 **Module : Application Côté Client 1**  
 **Année Universitaire : 2025–2026**  
@@ -10,10 +10,12 @@
 
 Cet atelier a pour objectif de permettre aux étudiants de :
 
-- Créer un formulaire avec l’approche **Template Driven Forms**
-- Ajouter des **validateurs prédéfinis**
-- Gérer l’affichage des **messages d’erreurs**
-- Manipuler les données issues d’un formulaire template-driven
+- Créer et injecter un **service Angular**
+- Consommer des **API REST** via **HttpClient**
+- Manipuler les opérations principales : **GET, POST, PUT, DELETE**
+- Comprendre les objets liés aux requêtes HTTP
+- Manipuler les **observables**
+- Gérer les erreurs liées aux appels HTTP
 
 ---
 
@@ -21,43 +23,41 @@ Cet atelier a pour objectif de permettre aux étudiants de :
 
 Les étudiants doivent réaliser une application Angular permettant de :
 
-- Créer un formulaire de participation à un événement
-- Valider les champs du formulaire selon les règles demandées
-- Afficher des messages d’erreurs adaptés
-- Calculer et afficher dynamiquement le prix total de participation
-- Ajouter les participations dans une liste dédiée
+- Récupérer des données depuis un backend via des services Angular
+- Tester et exploiter les appels HTTP
+- Traiter les réponses reçues
+- Gérer les erreurs retournées par le serveur
+- Structurer l’application autour des services
 
 ---
 
 ## 📤 Rendu attendu
 
-- Un formulaire Template Driven fonctionnel
-- Une validation correcte des champs du formulaire
-- Un affichage conforme au rendu demandé dans l’énoncé
+- Une application Angular fonctionnelle
+- Des données récupérées dynamiquement via HttpClient
+- Une gestion correcte des erreurs
 - Un projet structuré et exécutable sans erreurs
-
 
 ---
 
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  - 👉 [Workshop n°8 – Manipulation des Template Driven Forms](https://github.com/badi3a/AngularTraining/blob/workshop-08-template-driven-forms/Workshop%20n°8-Manipulate%20Template%20driven%20Form.pdf)
-  - 👉 [Cours – Manipulation des Template Driven Forms](https://github.com/badi3a/AngularTraining/blob/workshop-08-template-driven-forms/cours-Template%20driven%20Form.pdf)
+  👉 [Workshop n°9 – Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/Workshop%20n°9-Manipulate%20des%20services-HttpClient.pdf)
 
-### 📚 Documentation officielle Angular
+### 📚 Documentation officielle Angular (v18)
 
-- 🔗 **Template Driven Forms**  
-https://v18.angular.dev/guide/forms/template-driven-forms
+- 🔗 **Services et injection de dépendances**  
+  https://angular.dev/guide/dependency-injection
 
-- 🔗 **Validation des formulaires**  
- https://v18.angular.dev/guide/forms/form-validation
+- 🔗 **HttpClient – Communication HTTP**  
+  https://angular.dev/guide/http
 
-### 🎥 Vidéo explicative
+- 🔗 **Gestion des erreurs HTTP**  
+  https://angular.dev/guide/http#handling-request-errors
 
-Une vidéo explicative accompagne cet atelier afin de faciliter la compréhension des **Template Driven Forms**.
-
-[![Watch the video](https://img.youtube.com/vi/1VnqIsI-mrU/0.jpg)](https://youtu.be/1VnqIsI-mrU)
+- 🔗 **RxJS & Observables**  
+  https://rxjs.dev/guide/overview
 
 ---
 
