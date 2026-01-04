@@ -41,6 +41,9 @@ Les étudiants doivent :
 
 - 📄 **Énoncé du Workshop (PDF)**  
   👉 [Workshop n°1 – Mise en place de l’environnement](https://github.com/badi3a/AngularTraining/blob/workshop-01-setup/Workshop%20n°1%20-%20Mise%20en%20place%20de%20l_environnement.pdf)
+  - 📄 **Cours  (PDF)**  
+  👉 [Cours – Introduction](https://github.com/badi3a/AngularTraining/blob/workshop-01-setup/Cours%201-%20Introduction%20à%20Angular%20-2526.pdf)
+
 
 ### 📚 Documentation officielle Angular (v18)
 
