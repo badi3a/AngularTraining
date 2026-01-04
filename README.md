@@ -40,8 +40,8 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°6 – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-manipulate-input-output/Workshop%20n°6-Manipulate%20Input%26Output%20property.pdf)
-  👉 [Cours – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-manipulate-input-output/cours_composants_%20imbriqués.pdf)
+  - 👉 [Workshop n°6 – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-manipulate-input-output/Workshop%20n°6-Manipulate%20Input%26Output%20property.pdf)
+  - 👉 [Cours – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-manipulate-input-output/cours_composants_%20imbriqués.pdf)
 
 ### 📚 Documentation officielle Angular
 
