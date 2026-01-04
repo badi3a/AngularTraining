@@ -14,7 +14,7 @@ Ce module a pour objectif de permettre aux étudiants de développer une **appli
 
 L’apprentissage est organisé autour d’une **étude de cas réelle** et d’une série de **workshops progressifs**, permettant de construire l’application étape par étape.
 ## 🎥 Vidéo 
-[Watch the video](https://img.youtube.com/vi/I0jBi7LZo1I/0.jpg)](https://youtu.be/I0jBi7LZo1I)
+[![Watch the video](https://img.youtube.com/vi/I0jBi7LZo1I/0.jpg)](https://youtu.be/I0jBi7LZo1I)
 ---
 
 ## 🧩 Étude de cas (Atelier 0) — EventHub
