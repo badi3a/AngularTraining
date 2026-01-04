@@ -43,21 +43,25 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°9 – Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/Workshop%20n°9-Manipulate%20des%20services-HttpClient.pdf)
+      - 👉 [Workshop n°9 Part 1– Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/Workshop%20n°9-Manipulate%20des%20services-HttpClient.pdf)
+      - 👉 [Workshop n°9 Part 2– Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/Workshop%20n°9_suite-Manipulate%20des%20services-HttpClient.pdf)
+  - 📄 **Cours (PDF)**  
+      - 👉 [cours – Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/cours-Le%20service%20HttpClient.pdf)
+      - 👉 [cours – Les Services & Les observables)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/cours-Les%20services%20et%20les%20observables.pdf)
 
 ### 📚 Documentation officielle Angular (v18)
 
 - 🔗 **Services et injection de dépendances**  
-  https://angular.dev/guide/dependency-injection
+  https://v18.angular.dev/guide/di/dependency-injection
 
 - 🔗 **HttpClient – Communication HTTP**  
-  https://angular.dev/guide/http
+  [https://angular.dev/guide/http](https://v18.angular.dev/guide/http#)
+## 🎥 Vidéo explicative
 
-- 🔗 **Gestion des erreurs HTTP**  
-  https://angular.dev/guide/http#handling-request-errors
+Une vidéo explicative accompagne cet atelier afin de faciliter la compréhension des **HttpClient – Communication HTTP**.
 
-- 🔗 **RxJS & Observables**  
-  https://rxjs.dev/guide/overview
+[![Watch the video](https://img.youtube.com/vi/m7Cugyx5zVE/0.jpg)](https://youtu.be/m7Cugyx5zVE)
+
 
 ---
 
