@@ -1,4 +1,4 @@
-# 🅰️ Atelier Angular — Manipulation de composants, directives et pipes
+# 🅰️ Atelier n°5 Angular — Manipulation de composants, directives et pipes
 
 **Module : Application Côté Client 1**  
 **Année Universitaire : 2025–2026**  
@@ -40,9 +40,9 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°5 – Manipulation de composants, directives et pipes](https://github.com/badi3a/AngularTraining/blob/workshop-03-manipulate-component/Workshop%205.pdf)
+  👉 [Workshop n°5 – Manipulation de composants, directives et pipes]([https://github.com/badi3a/AngularTraining/blob/workshop-03-manipulate-component/Workshop%205.pdf](https://github.com/badi3a/AngularTraining/blob/workshop-05-directives-pipes/Workshop%20n°5--%20Manipulation%20de%20composants%2C%20directives%20et%20pipes.pdf))
 - 📄 **Support de cours (PDF)**
-  👉 [Cours n°2 -Manipulation de composants](https://github.com/badi3a/AngularTraining/blob/workshop-03-manipulate-component/Workshop%205.pdf)
+  👉 [Cours n°2 -Manipulation de composants]([https://github.com/badi3a/AngularTraining/blob/workshop-03-manipulate-component/Workshop%205.pdf](https://github.com/badi3a/AngularTraining/blob/workshop-05-directives-pipes/Cours%20n°2%20-Manipulation%20de%20composants.pdf))
 ### 📚 Documentation officielle Angular
 - 🔗 **Composants Angular**  
   https://angular.dev/guide/components
