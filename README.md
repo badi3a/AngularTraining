@@ -45,7 +45,7 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°3 – Manipulation des composants](https://github.com/badi3a/AngularTraining/blob/workshop-03-manipulate-components/Workshop%20n°3%20-Manipulate%20Modules%20and%20Components.pdf)
+  👉 [Workshop n°3 – Manipulation des composants](https://github.com/badi3a/AngularTraining/blob/workshop-03-manipulate-component/Workshop%20n°3%20-Manipulate%20Modules%20and%20Components.pdf)
 - 📄 **Cours (PDF)**  
   👉 [cours– Manipulation des composants](https://github.com/badi3a/AngularTraining/blob/workshop-02-getting-started/cours%20composant.pdf)
 
