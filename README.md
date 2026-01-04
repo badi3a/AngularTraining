@@ -40,18 +40,17 @@ Les étudiants doivent réaliser une application Angular permettant de :
 ## 📂 Ressources
 
 - 📄 **Énoncé du Workshop (PDF)**  
-  👉 [Workshop n°6 – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-input-output/Workshop%20n°6-Manipulate%20Input%26Output%20property.pdf)
+  👉 [Workshop n°6 – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-manipulate-input-output/Workshop%20n°6-Manipulate%20Input%26Output%20property.pdf)
+  👉 [Cours – Manipulation de composants imbriqués (Input & Output)](https://github.com/badi3a/AngularTraining/blob/workshop-06-manipulate-input-output/cours_composants_%20imbriqués.pdf)
 
 ### 📚 Documentation officielle Angular
 
 - 🔗 **Composants Angular**  
   https://angular.dev/guide/components
 
-- 🔗 **Communication entre composants**  
-  https://angular.dev/guide/component-interaction
-
 - 🔗 **Input & Output**  
-  https://angular.dev/guide/inputs-outputs
+  [Function-based outputs](https://v18.angular.dev/guide/components/output-fn)
+  [Accepting data with input properties](https://v18.angular.dev/guide/components/inputs#declaring-inputs-with-the-input-decorator)
 
 ---
 
