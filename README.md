@@ -1,110 +1,63 @@
-# 🛠️ Workshop 1 – Environment Setup (Angular LTS 18)
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Angular_Logo_SVG.svg/768px-Angular_Logo_SVG.svg.png?20231112001847" alt="Angular Logo" width="120"/>
-</p>
+# 🅰️ Atelier n°1 Angular — Mise en place de l’environnement
 
-This branch corresponds to **Workshop n°1: Environment Setup **
-
----
-
-## 🎯 Objectives
-- Install the working environment required for **Angular 18**.  
-- Create a new Angular project (Standalone or Modular).  
-- Understand the possible configurations of an Angular project.  
+**Module : Application Côté Client 1**  
+**Année Universitaire : 2025–2026**  
+**École : ESPRIT – École d’Ingénieurs**
 
 ---
 
-## 📦 Steps to Install the Environment
+## 🎯 Objectifs de l’atelier
 
-1. **Install Node.js**  
-   - Download from [https://nodejs.org/en/](https://nodejs.org/en/).  
-   - Minimum: `v18.13.0`  
-   - Recommended: `v20.x.x (LTS)`  
-   - Verify installation:  
-     ```bash
-     node -v
-     npm -v
-     ```
+Cet atelier a pour objectif de permettre aux étudiants de :
 
-2. **Install Angular CLI v18**  
-   ```bash
-   npm install -g @angular/cli@18
-   ng version
-   ```
-
-3. **Install an IDE**  
-   - Recommended: *Visual Studio Code* or *WebStorm*.  
-
-4. **Create a workspace folder**  
-   Example:  
-   ```bash
-   mkdir Angular_Workspace
-   cd Angular_Workspace
-   ```
+- Installer l’environnement de travail nécessaire pour **Angular 18**
+- Créer un projet Angular basé sur la version **18**
+- Comprendre les différentes configurations possibles d’un projet Angular
+- Distinguer entre un projet **Standalone** et un projet **Modulaire**
 
 ---
 
-## 🚀 Create a New Angular Project
+## 📦 Travail demandé
 
-### ▶️ 100% Standalone Project
-```bash
-ng new projectName
-cd projectName
-ng serve --open
-```
+Les étudiants doivent :
 
-- **Characteristics**:  
-  - No `AppModule`.  
-  - All components are standalone.  
-- **Best for**: small projects, prototypes, SPAs, experimentation.  
+- Installer les outils nécessaires au développement Angular
+- Créer et exécuter un projet Angular en local
+- Explorer la structure d’un projet Angular
+- Comparer les approches **Standalone** et **NgModule**
 
 ---
 
-### ▶️ Modular Project (NgModule)
-```bash
-ng new projectName --standalone=false
-cd projectName
-ng serve --open
-```
+## 📤 Rendu attendu
 
-- **Characteristics**:  
-  - Uses `AppModule` and other modules.  
-  - Can include standalone components.  
-- **Best for**: large projects, enterprise apps, complex routing.  
+- Un environnement Angular correctement installé
+- Un projet Angular fonctionnel lancé en local
+- Une compréhension claire de la structure du projet
+- Un projet exécutable sans erreurs
 
 ---
 
-## 📊 Choosing Between Standalone vs Modular
+## 📂 Ressources
 
-| Project Type                          | Recommended Approach |
-|---------------------------------------|-----------------------|
-| Small project / quick prototype       | 100% Standalone       |
-| Simple SPA                            | Standalone or light Modular |
-| Large / enterprise / multi-team app   | Modular + Standalone components |
-| Complex routing / SSR / SSG required  | Modular + Standalone mix |
+- 📄 **Énoncé du Workshop (PDF)**  
+  👉 [Workshop n°1 – Mise en place de l’environnement](https://github.com/badi3a/AngularTraining/blob/workshop-01-setup/Workshop%20n°1%20-%20Mise%20en%20place%20de%20l_environnement.pdf)
 
+### 📚 Documentation officielle Angular (v18)
+
+- 🔗 **Installation Angular & prérequis**  
+  https://v18.angular.dev/overview
+
+- 🔗 **Créer un projet Angular**  
+  https://v18.angular.dev/installation
+
+
+### 🎥 Vidéo explicative
+
+[![Watch the video](https://img.youtube.com/vi/hdo9CUVFwzg/0.jpg)](https://youtu.be/hdo9CUVFwzg)
 ---
 
-## 📝 Summary of Commands
+## 🏫 Cadre pédagogique
 
-| Command                                | Role                                   | When to Use |
-|----------------------------------------|----------------------------------------|-------------|
-| `node -v`                              | Check Node.js version                  | After installing Node |
-| `npm -v`                               | Check npm version                      | After installing Node |
-| `npm install -g @angular/cli@18`       | Install Angular CLI (v18) globally     | One-time setup |
-| `ng version`                           | Check Angular/CLI/Node versions        | After CLI install |
-| `ng new <projectName>`                 | Create new standalone Angular project  | Project start |
-| `ng new <projectName> --standalone=false` | Create new modular Angular project   | Project start |
-| `cd <projectName>`                     | Enter project folder                   | After project creation |
-| `ng serve`                             | Start dev server                       | Run locally |
-| `ng serve --open`                      | Start dev server and open browser      | Faster startup |
+### Enseignante : [Badia Bouhdid](https://www.linkedin.com/in/badiabouhdid)
 
----
-### 👨‍🏫 Instructor
-- **[Badia Bouhdid](https://www.linkedin.com/in/badiabouhdid)**
-
-🏫 This training is delivered as part of the **Client-Side Application 1** module at [Esprit School of Engineering](https://www.esprit.tn)
-
-
-
-
+Cet atelier s’inscrit dans le cadre du **module Application Côté Client 1**, destiné aux étudiants de **4ᵉ année – Option TWIN**, à l’**École d’Ingénieurs ESPRIT**.
