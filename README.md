@@ -49,8 +49,8 @@ Les étudiants doivent réaliser une application Angular permettant de :
   https://angular.dev/guide/components
 
 - 🔗 **Input & Output**  
-  [Function-based outputs](https://v18.angular.dev/guide/components/output-fn)
-  [Accepting data with input properties](https://v18.angular.dev/guide/components/inputs#declaring-inputs-with-the-input-decorator)
+  - [Function-based outputs](https://v18.angular.dev/guide/components/output-fn)
+  - [Accepting data with input properties](https://v18.angular.dev/guide/components/inputs#declaring-inputs-with-the-input-decorator)
 
 ---
 
