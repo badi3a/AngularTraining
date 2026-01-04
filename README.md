@@ -42,7 +42,7 @@ Les étudiants doivent réaliser une application Angular permettant de :
 
 ## 📂 Ressources
 
-- 📄 **Énoncé du Workshop (PDF)**  
+- 📄 **Énoncé du Workshop (PDF)**
       - 👉 [Workshop n°9 Part 1– Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/Workshop%20n°9-Manipulate%20des%20services-HttpClient.pdf)
       - 👉 [Workshop n°9 Part 2– Manipulation des services (HttpClient)](https://github.com/badi3a/AngularTraining/blob/workshop-09-services-httpclient/Workshop%20n°9_suite-Manipulate%20des%20services-HttpClient.pdf)
   - 📄 **Cours (PDF)**  
